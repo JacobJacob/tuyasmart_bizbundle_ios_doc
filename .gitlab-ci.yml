@@ -1,0 +1,12 @@
+stages:
+  - update
+
+update:
+  stage: update
+  tags:
+    - gitbook
+  only:
+    - master
+  script:
+    - cd /Users/fengxiao/code/gitbook/tuyasmartbizbundledoc
+    - git pull
