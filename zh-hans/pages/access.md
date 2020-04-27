@@ -4,20 +4,17 @@
 
 ## 业务包内容介绍
 
-| 组件                        | 内容说明                                         | 注意 |
+| Cocoapods 组件                        | 内容说明                                         | - |
 | --------------------------- | ------------------------------------------------ | ---- |
 | TuyaSmartBizCore            | 业务基础处理库，用于启动业务包以及自定义一些功能 | 必选 |
 | TYModuleServices            | 业务包模块实现的协议                             | 必选 |
-| TuyaSmartPanelSDK           | 提供了设备控制面板的加载和控制的接口封装         | 可选 |
-| TuyaCameraPanelSDK          | 提供了一系列摄像机面板相关功能                   | 可选 |
-| TuyaSmartMallBizBundle      | 提供商城功能                                     | 可选 |
-| TuyaSmartActivatorBizBundle | 提供设备配网业务功能                             | 可选 |
+| TuyaSmartXXXBizBundle | 各种业务包实现组件                             | 可选 |
 
 
 
 `TuyaSmartBizCore` 和 `TYModuleServices` 是使用业务包必须要依赖的基础库。
 
-###  `TuyaSmartBizCore` 介绍
+###  业务包核心库 (TuyaSmartBizCore) 介绍
 
 提供启动业务包以及自定义配置功能
 
@@ -45,15 +42,15 @@
 
 **参数介绍**
 
-| 参数            | 说明                         |
-| --------------- | ---------------------------- |
-| appId           | 应用 Id                      |
-| tyAppKey        | 涂鸦开发者平台生成的 App Key |
-| appScheme       | App Scheme                   |
-| hotspotPrefixs  | 配网设备热点前缀             |
-| needBle         | 是否需要支持蓝牙设备配网     |
-| scanDeviceClose | 是否需要关闭自动发现配网     |
-| themeColor      | UI 主题色设置                |
+| 参数            | 说明                         | 类型 | 必选 | 默认值 |
+| --------------- | ---------------------------- |-| - | -|
+| appId           | 应用 Id                      | Number | 是 | 无 |
+| tyAppKey        | 涂鸦开发者平台生成的 App Key | String | 是 | 无 |
+| appScheme       | App Scheme                   | String | 是 | 无 |
+| hotspotPrefixs  | 配网设备热点前缀             | String | 否 | "SmartLife" |
+| needBle         | 是否需要支持蓝牙设备配网     | Boolean | 否 | true |
+| scanDeviceClose | 是否需要关闭自动发现配网     | Boolean | 否 | false |
+| themeColor      | UI 主题色设置                | String | 否 | #FF5A28 |
 
 
 
@@ -106,10 +103,9 @@
 
 
 
-### `TYModuleServices`
+### 服务协议 (TYModuleServices)
 
 提供各个业务包实现的服务协议
-
 
 
 ## 快速集成
@@ -121,8 +117,6 @@
 ```ruby
 source "https://github.com/TuyaInc/TYPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
-
-platform :ios, '9.0'
 
 target 'your_target_name' do
    pod "TuyaSmartBizCore"
@@ -140,76 +134,30 @@ CocoaPods 的使用请参考：[CocoaPods Guide](https://guides.cocoapods.org)
 
 
 
-### 初始化业务包
+### 自定义配置项
 
-1. 打开项目设置，Target => General，修改```Bundle Identifier```为涂鸦开发者平台上注册的 App 对应的 iOS 包名。
+填写业务包初始化需要的配置
 
-2. 将上面准备工作中下载的安全图片导入到工程根目录，重命名为```t_s.bmp```，并加入「项目设置 => Target => Build Phases => Copy Bundle Resources」中。
-
-3. 在项目的```PrefixHeader.pch```文件添加以下内容（Swift 项目可以添加在```xxx_Bridging-Header.h```桥接文件中）：
-
-   ```objc
-   #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
-   ```
-
-4. 打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中，使用在涂鸦开发者平台上，App 对应的 `App Key`，`App Secret` 初始化SDK：
-
-   ObjC
-
-   ```objc
-   [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
-   ```
-
-   Swift
-
-   ```swift
-   TuyaSmartSDK.sharedInstance()?.start(withAppKey: <#your_app_key#>, secretKey: <#your_secret_key#>)
-   ```
-
-5. 填写业务包初始化需要的配置
-
-   ```json
-   {
-       "config": {
-           "appId": 123,    
-           "tyAppKey": "xxxxxxxxxxxx", 
-           "appScheme": "tuyaSmart",
-           "hotspotPrefixs": "SmartLife",
-           "needBle": true,
-           "scanDeviceClose": false,
-       },
-      "colors":{
-           "themeColor": "#FF5A28", 
-       }
-   }
-   ```
-
-   生成名为 ty_custom_config.json 的 json 文件，放到工程目录下。
-
-至此，涂鸦业务包准备工作已经完成，可以开始业务包的使用，具体业务包的集成使用请到业务包导航目录下寻找相应的说明。
-
-### Debug 模式
-
-在开发的过程中可以开启 Debug 模式，打印一些日志用于分析问题。
-
-ObjC
-
-```objc
-#ifdef DEBUG
-    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
-#else
-#endif
+```json
+{
+    "config": {
+        "appId": 123,    
+        "tyAppKey": "xxxxxxxxxxxx", 
+        "appScheme": "tuyaSmart",
+        "hotspotPrefixs": "SmartLife",
+        "needBle": true,
+        "scanDeviceClose": false,
+    },
+    "colors":{
+        "themeColor": "#FF5A28", 
+    }
+}
 ```
 
-Swift
+生成名为 `ty_custom_config.json` 的 json 文件，放到工程根目录下。
 
-```swift
-#if DEBUG
-   TuyaSmartSDK.sharedInstance()?.debugMode = true
-#else
-#endif
+涂鸦业务包准备工作已经完成，可以开始业务包的使用，具体业务包的集成使用请到业务包导航目录下寻找相应的说明。
 
-```
 
 
 

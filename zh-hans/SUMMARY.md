@@ -1,14 +1,12 @@
-* [前言](./README.md)
+* [介绍](./README.md)
 * [准备工作](./pages/prepare.md)
 * [框架接入](./pages/access.md)
-  - [业务包内容介绍](./pages/access.md#业务包内容介绍)
-  - [快速集成](./pages/access.md#快速集成)
 * [业务包导航](./pages/biznav.md)
-  * [商城](./pages/mall/README.md)
+  * [H5 商城](./pages/mall/README.md)
   * [配网业务](./pages/activator/README.md)
   * [设备面板](./pages/panel/README.md)
   * [IPC 设备面板](./pages/ipc_panel/README.md)
-* [依赖关系](./pages/dependence.md)
+<!-- * [依赖关系](./pages/dependence.md) -->
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
 

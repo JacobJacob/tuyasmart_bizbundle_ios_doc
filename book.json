@@ -9,15 +9,15 @@
   "pluginsConfig": {
     "addcssjs": {
       "js": [
-        "./scripts/mermaid.min.js",
-        "./scripts/index.js"
+        "../scripts/mermaid.min.js",
+        "../scripts/index.js"
       ],
       "css": [
       ]
     },
     "prism": {
       "css": [
-        "prismjs/themes/prism-okaidia.css"
+        "prismjs/themes/prism.css"
       ],
       "lang": {
         "oc": "objectivec",
@@ -25,7 +25,6 @@
         "objective-c": "objectivec"
       },
       "ignore": [
-        "sequence"
       ]
     },
     "theme-default": {
