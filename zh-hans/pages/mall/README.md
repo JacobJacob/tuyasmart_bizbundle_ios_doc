@@ -98,6 +98,12 @@ let mallImpl = TuyaSmartBizCore.sharedInstance().service(of: TYMallProtocol.self
 
 ### 获取商城页面 (UIViewController)
 
+目前提供一下两个页面：
+- 商城首页 (TYMallPageTypeHome)
+- 商城订单页 (TYMallPageTypeOrders)
+
+接入时可以根据需要获取对应页面来展示
+
 Objective-C 示例
 
 ```oc
