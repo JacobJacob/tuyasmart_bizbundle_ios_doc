@@ -1,6 +1,6 @@
 # H5 Mall
 
-## integrate
+## Integrate
 
 Add the `TuyaSmartMallBizBundle` in the project's `Podfile` file and execute the` pod update` command
 
