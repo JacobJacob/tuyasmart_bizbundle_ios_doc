@@ -24,9 +24,9 @@ Obtain the instance which implement the service protocol provided by the BizBund
 
 ```mermaid
 classDiagram
-    Protocol <|.. BizBundle : 业务包实现服务协议
+    Protocol <|.. BizBundle : BizBundle implement servcie protocol
     Protocol .. BizCore
-    BizCore <.. YourClass : 获取实现服务协议的实例
+    BizCore <.. YourClass : Get instance of service
     class Protocol{
         +doSomeThing()
     }
@@ -46,8 +46,8 @@ Some BizBundle depend on services that are not implemented, At this time, you ca
 
 ```mermaid
 classDiagram
-    Protocol <|.. YourClass : 实现服务协议
-    BizCore <.. YourClass : 注册你的服务实现类或实例
+    Protocol <|.. YourClass : implement servcie protocol
+    BizCore <.. YourClass : Register your service implement class or instance
     Protocol .. BizCore
     BizCore <.. BizBundle
     class BizBundle{
