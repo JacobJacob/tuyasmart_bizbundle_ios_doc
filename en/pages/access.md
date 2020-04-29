@@ -113,10 +113,10 @@ source "https://github.com/TuyaInc/TYPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-   pod "TuyaSmartBizCore"
-   pod "TYModuleServices"
-   # BizBudnle that you want
-   pod "TuyaSmartXXXBizBundle"
+    # TuyaSmart SDK
+    pod "TuyaSmartHomeKit"
+    # BizBudnle that you want
+    pod "TuyaSmartXXXBizBundle"
 end
 ```
 

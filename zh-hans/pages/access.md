@@ -113,10 +113,10 @@ source "https://github.com/TuyaInc/TYPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-   pod "TuyaSmartBizCore"
-   pod "TYModuleServices"
-   # 若需要相关业务包功能，请添加相关业务库
-   pod "TuyaSmartXXXBizBundle"
+    # 添加涂鸦智能全屋 SDK
+    pod "TuyaSmartHomeKit"
+    # 若需要相关业务包功能，请添加相关业务库
+    pod "TuyaSmartXXXBizBundle"
 end
 ```
 

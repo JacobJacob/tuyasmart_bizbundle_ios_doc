@@ -9,8 +9,8 @@ source "https://github.com/TuyaInc/TYPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  pod "TuyaSmartBizCore"
-  pod "TYModuleServices"
+  # TuyaSmart SDK
+  pod "TuyaSmartHomeKit"
   # Add H5 Mall BizBundle
   pod 'TuyaSmartMallBizBundle'
 end
