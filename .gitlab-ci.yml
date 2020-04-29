@@ -8,5 +8,5 @@ update:
   only:
     - master
   script:
-    - cd /Users/fengxiao/code/gitbook/tuyasmartbizbundledoc
+    - cd ~/code/gitbook/tuyasmartbizbundledoc
     - git pull
