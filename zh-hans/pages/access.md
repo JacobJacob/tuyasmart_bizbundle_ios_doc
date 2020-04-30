@@ -109,7 +109,7 @@
 在 `Podfile` 文件中添加以下内容完成业务包核心库添加：
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do

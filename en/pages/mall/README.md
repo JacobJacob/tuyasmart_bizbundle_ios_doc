@@ -5,7 +5,7 @@
 Add the `TuyaSmartMallBizBundle` in the project's `Podfile` file and execute the` pod update` command
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do

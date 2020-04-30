@@ -109,7 +109,7 @@ Services protocol provider
 Add the following content to the `Podfile` file:
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do

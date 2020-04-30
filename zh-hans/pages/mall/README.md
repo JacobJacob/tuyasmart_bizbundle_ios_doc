@@ -5,7 +5,7 @@
 在工程的 `Podfile` 文件中添加商城业务包组件，并执行 `pod update` 命令
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do

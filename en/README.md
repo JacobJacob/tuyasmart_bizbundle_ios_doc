@@ -6,9 +6,6 @@ Tuya iOS BizBundle is a vertical business bundle that contains logic modules and
 
 Tuya iOS BizBundle currently offered includes:
 - H5 Mall
-- Device Control Panel
-- IPC Device Control Panel
-- Device Activation
 
 ## Architecture
 
