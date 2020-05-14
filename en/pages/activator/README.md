@@ -1,4 +1,4 @@
-# Device Activation BizBundle
+# Network Configuration BizBundle
 
 Device Activation BizBundle supports  device configuration logic and UI interface of Tuya App. Business functions cover different types of devices such as Wi-Fi devices, ZigBee devices, Bluetooth devices, and QR code scanning devices (such as GPRS & NB-IOT devices) that currently support Tuya Smart.  BizBundle provide devices network operation guidance and specific network access process implementation
 
