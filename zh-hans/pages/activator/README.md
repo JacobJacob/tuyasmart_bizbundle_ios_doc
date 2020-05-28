@@ -1,6 +1,6 @@
 # 配网
 
-配网业务包提供涂鸦 App 配网业务逻辑及 UI 界面。业务功能涵盖了目前涂鸦智能的 Wi-Fi 设备、ZigBee 设备、蓝牙设备、支持二维码扫码的设备（例如 GPRS & NB-IOT 设备）等不同类型的设备配网前置操作引导和具体入网激活实现。
+配网业务包提供涂鸦 App 配网业务逻辑及 UI 界面。业务功能涵盖了目前涂鸦智能的 Wi-Fi 设备、ZigBee 设备、蓝牙设备、支持二维码扫码的设备（例如 GPRS & NB-IoT 设备）等不同类型的设备配网前置操作引导和具体入网激活实现。
 
 
 
@@ -22,7 +22,7 @@ end
 
 **注意**
 
-WiFi 设备配网过程需要获取手机当前连接 WiFi 名称，需要项目开启地位权限来获取 WiFi 的名称，在 info.plist 中添加如下权限声明，创建 `CLLocationManager` 示例，并调用 `requestWhenInUseAuthorization` 方法。
+Wi-Fi  设备配网过程需要获取手机当前连接 Wi-Fi  名称，需要项目开启地位权限来获取 Wi-Fi  的名称，在 info.plist 中添加如下权限声明，创建 `CLLocationManager` 示例，并调用 `requestWhenInUseAuthorization` 方法。
 
 ```
 NSLocationAlwaysAndWhenInUseUsageDescription
@@ -42,7 +42,7 @@ NSCameraUsageDescription
 
 ### 1、蓝牙配网功能
 
-配网业务包支持 WiFi 、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不支持蓝牙配网，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可。
+配网业务包支持 Wi-Fi  、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不需要蓝牙配网功能 ，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可。
 
 如果需要蓝牙配网功能，首先需要在项目的 info.Plist 文件中添加蓝牙权限的声明，设置 `ty_custom_config.json` 中的 `needBle` 属性设置为 true，然后需要在项目中添加以下依赖：
 

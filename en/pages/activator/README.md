@@ -1,6 +1,6 @@
 # Network Configuration BizBundle
 
-Device Activation BizBundle supports  device configuration logic and UI interface of Tuya App. Business functions cover different types of devices such as Wi-Fi devices, ZigBee devices, Bluetooth devices, and QR code scanning devices (such as GPRS & NB-IOT devices) that currently support Tuya Smart.  BizBundle provide devices network operation guidance and specific network access process implementation
+Device Activation BizBundle supports  device configuration logic and UI interface of Tuya App. Business functions cover different types of devices such as Wi-Fi devices, ZigBee devices, Bluetooth devices, and QR code scanning devices (such as GPRS & NB-IoT devices) that currently support Tuya Smart.  BizBundle provide devices network operation guidance and specific network access process implementation
 
 
 
@@ -22,7 +22,7 @@ end
 
 **Note**
 
-The WiFi device Activation process needs to obtain the  ssid of the current WiFi , and the project needs to add the following permission statement in info.plist. Then create a CLLocationManager object, and call the requestWhenInUseAuthorization method.
+The Wi-Fi device Activation process needs to obtain the  ssid of the current Wi-Fi , and the project needs to add the following permission statement in info.plist. Then create a CLLocationManager object, and call the requestWhenInUseAuthorization method.
 
 ```
 NSLocationAlwaysAndWhenInUseUsageDescription
@@ -44,7 +44,7 @@ NSCameraUsageDescription
 
 ### 1. Bluetooth Function
 
-BizBundle supports WiFi, Bluetooth and other types of devices to connect to the network. Set `needBle` false，when not needed. 
+BizBundle supports Wi-Fi, Bluetooth and other types of devices to connect to the network. Set `needBle` false，when not needed. 
 
 If you need the Bluetooth distribution function, you need to add the Bluetooth permission declaration in the project's info.Plist file, set the `needBle`  property in `ty_custom_config.json`  to true, and then add the following dependencies to the project:
 
