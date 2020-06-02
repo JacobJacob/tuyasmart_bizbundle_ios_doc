@@ -27,7 +27,9 @@
     "config": {
         "appId": 123,    
         "tyAppKey": "xxxxxxxxxxxx", 
-        "appScheme": "tuyaSmart"
+        "appScheme": "tuyaSmart",
+        "hotspotPrefixs": ["SmartLife"],
+        "needBle": true
     },
    "colors":{
         "themeColor": "#FF5A28", 
@@ -44,6 +46,8 @@
 | appId           | 应用 Id                      | Number | 是 | 无 |
 | tyAppKey        | 涂鸦开发者平台生成的 App Key | String | 是 | 无 |
 | appScheme       | App Scheme                   | String | 是 | 无 |
+| hotspotPrefixs  | 配网设备热点前缀             | Array | 否 | ["SmartLife"] |
+| needBle         | 是否需要支持蓝牙设备配网     | Boolean | 否 | true |
 | themeColor      | UI 主题色设置                | String | 否 | #FF5A28 |
 
 

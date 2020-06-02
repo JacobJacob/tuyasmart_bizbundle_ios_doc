@@ -8,5 +8,6 @@ update:
   only:
     - master
   script:
+    - users
     - cd ~/code/gitbook/tuyasmartbizbundledoc
     - git pull
