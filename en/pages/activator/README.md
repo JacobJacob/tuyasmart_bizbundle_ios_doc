@@ -10,9 +10,9 @@ Support Wi-Fi smart devices to connect to the cloud service.  The Wi-Fi device m
 
 | Attributes                   | Description                                                  |
 | ---------------------------- | ------------------------------------------------------------ |
-| EZ mode                      | Also known as the fast connection mode. The APP packs the network data packets into the designated area of the 802.11 data packets and sends them to the surrounding environment. The Wi-Fi module of the smart device is in the promiscuous model, and  captures all the packets in the network, and parses out the  network information packet sent by the APP according to the agreed protocol data format. |
+| EZ mode                      | Also known as the fast connection mode. The App packs the network data packets into the designated area of the 802.11 data packets and sends them to the surrounding environment. The Wi-Fi module of the smart device is in the promiscuous model, and  captures all the packets in the network, and parses out the  network information packet sent by the App according to the agreed protocol data format. |
 | AP mode                      | Also known as hotspot mode. The mobile phone connects the smart device's hotspot, and the two parties establish a Socket connection to exchange data through the agreed port. |
-| Camera QR code scanning mode | The camera device obtains the configuration  data information by scanning the QR code on the APP. |
+| Camera QR code scanning mode | The camera device obtains the configuration  data information by scanning the QR code on the App. |
 
 ### 2. ZigBee Devices
 
