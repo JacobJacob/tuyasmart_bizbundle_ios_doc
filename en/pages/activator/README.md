@@ -1,8 +1,52 @@
 # Network Configuration BizBundle
 
-Device Activation BizBundle supports  device configuration logic and UI interface of Tuya App. Business functions cover different types of devices such as Wi-Fi devices, ZigBee devices, Bluetooth devices, and QR code scanning devices (such as GPRS & NB-IoT devices) that currently support Tuya Smart.  BizBundle provide devices network operation guidance and specific network access process implementation
+## Features
 
+The business functions cover all the Wi-Fi devices, ZigBee devices, Bluetooth devices, QR code scanning devices (such as GPRS & NB-IOT devices)  and other types of devices currently equipped with TuyaSmart APP. 
 
+### 1. Wi-Fi Devices
+
+Support Wi-Fi smart devices to connect to the cloud service.  The Wi-Fi device mainly includes EZ mode and AP mode, among which IPC device also supports the QR code scanning mode
+
+| Attributes                   | Description                                                  |
+| ---------------------------- | ------------------------------------------------------------ |
+| EZ mode                      | Also known as the fast connection mode. The APP packs the network data packets into the designated area of the 802.11 data packets and sends them to the surrounding environment. The Wi-Fi module of the smart device is in the promiscuous model, and  captures all the packets in the network, and parses out the  network information packet sent by the APP according to the agreed protocol data format. |
+| AP mode                      | Also known as hotspot mode. The mobile phone connects the smart device's hotspot, and the two parties establish a Socket connection to exchange data through the agreed port. |
+| Camera QR code scanning mode | The camera device obtains the configuration  data information by scanning the QR code on the APP. |
+
+### 2. ZigBee Devices
+
+Support ZigBee gateway and sub-device network Configuration.
+
+| Attributes     | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| ZigBee         | ZigBee technology is a short-range, low-complexity, low-power, low-speed, low-cost two-way wireless communication technology. It is mainly used for data transmission between various electronic devices with short distances, low power consumption and low transmission rates, as well as typical applications with periodic data, intermittent data and low response time data transmission. |
+| ZigBee Gateway | The device that integrates the coordinator and WiFi functions in the ZigBee network is responsible for the establishment of the ZigBee network and the storage of data information. |
+| Sub-device     | Routing or terminal equipment in ZigBee network, responsible for data forwarding or terminal control response. |
+
+### 3. Bluetooth Devices
+
+Tuya Bluetooth has three technical lines, including SingleBLE, SigMesh, TuyaMesh, and dual-mode devices.
+
+| Attributes       | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| SingleBLE        | Bluetooth device connected one-to-one with mobile phone via Bluetooth |
+| SigMesh          | Adopts the Bluetooth topology communication released by the Bluetooth Technology Alliance |
+| TuyaMesh         | Adopting Tuya's self-developed Bluetooth topology communication |
+| Dual-mode Device | Support multi-protocol, ie devices with both Wi-Fi and BLE capabilities |
+
+### 4. Scanning Code Network Configuration Devices
+
+This type of device is connected to the Tuya cloud service after being powered on. APP scans the QR code on the device (must be the QR code rule supported by the Tuya cloud service, and supports specific firmware access methods. Consult Tuya Technology-related business and project managers ) and enables  device to activate on the Tuya Cloud
+
+| Attributes    | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| GPRS Device   | Smart devices that use GPRS communication technology to access the network and connect to cloud services |
+| NB-IOT Device | Smart device adopting NarrowBand-Internet of Things technology |
+
+### 5. Automatic Network Discovery
+
+Integrated with Tuya universal Configuration network technology to provide users with a set of fast Configuration network functions
 
 ## Access
 
@@ -46,7 +90,7 @@ NSCameraUsageDescription
 
 BizBundle supports Wi-Fi, Bluetooth and other types of devices to connect to the network. Set `needBle` false，when not needed. 
 
-If you need the Bluetooth distribution function, you need to add the Bluetooth permission declaration in the project's info.Plist file, set the `needBle`  property in `ty_custom_config.json`  to true, and then add the following dependencies to the project:
+If you need the Bluetooth function, you need to add the Bluetooth permission declaration in the project's info.Plist file, set the `needBle`  property in `ty_custom_config.json`  to true, and then add the following dependencies to the project:
 
 **Permission statement**
 
