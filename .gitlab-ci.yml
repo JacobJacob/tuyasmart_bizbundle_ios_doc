@@ -15,8 +15,11 @@ public:
   only:
     - master
   script:
-    - REMOTE_GITHUB=`git remote -v | grep github | wc -l`
+    - REMOTE_GITHUB=$(echo `git remote -v | grep github | wc -l`)
     - if [ "$REMOTE_GITHUB" == "0" ]; then git remote add github https://github.com/TuyaInc/tuyasmart_bizbundle_ios_doc; fi
     - git remote -v
     - git checkout master
+    - git pull origin master
+    - git pull github master
     - git push -u github master
+    - git push -u origin master
