@@ -22,4 +22,3 @@ public:
     - git pull origin master
     - git pull github master
     - git push -u github master
-    - git push -u origin master
