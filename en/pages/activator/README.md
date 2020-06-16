@@ -53,7 +53,7 @@ Integrated with Tuya universal Configuration network technology to provide users
 Add the bizbundle in  the `Podfile` file, then execute pod update command
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
