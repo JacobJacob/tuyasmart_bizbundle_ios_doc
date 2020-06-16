@@ -16,7 +16,7 @@ Support Wi-Fi smart devices to connect to the cloud service.  The Wi-Fi device m
 
 ### 2. ZigBee Devices
 
-Support ZigBee gateway and sub-device network Configuration.
+Support ZigBee gateway and sub-device network Configuration
 
 | Attributes     | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
@@ -26,7 +26,7 @@ Support ZigBee gateway and sub-device network Configuration.
 
 ### 3. Bluetooth Devices
 
-Tuya Bluetooth has three technical lines, including SingleBLE, SigMesh, TuyaMesh, and dual-mode devices.
+Tuya Bluetooth has three technical lines, including SingleBLE, SigMesh, TuyaMesh, and dual-mode devices
 
 | Attributes       | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
@@ -66,7 +66,7 @@ end
 
 **Note**
 
-The Wi-Fi device Activation process needs to obtain the  ssid of the current Wi-Fi , and the project needs to add the following permission statement in info.plist. Then create a CLLocationManager object, and call the requestWhenInUseAuthorization method.
+The Wi-Fi device Activation process needs to obtain the  ssid of the current Wi-Fi , and the project needs to add the following permission statement in info.plist. Then create a CLLocationManager object, and call the requestWhenInUseAuthorization method
 
 ```
 NSLocationAlwaysAndWhenInUseUsageDescription
@@ -88,7 +88,7 @@ NSCameraUsageDescription
 
 ### 1. Bluetooth Function
 
-BizBundle supports Wi-Fi, Bluetooth and other types of devices to connect to the network. Set `needBle` false，when not needed. 
+BizBundle supports Wi-Fi, Bluetooth and other types of devices to connect to the network. Set `needBle` false，when not needed
 
 If you need the Bluetooth function, you need to add the Bluetooth permission declaration in the project's info.Plist file, set the `needBle`  property in `ty_custom_config.json`  to true, and then add the following dependencies to the project:
 
@@ -129,7 +129,7 @@ NSBluetoothPeripheralUsageDescription
 
 ### 2. Custom Device Hotspot Name Prefix
 
-Tuya Device hotspot name prefix defaults to `SmartLife`.  Can custom hotspot name prefix as your device's through setting `hotspotPrefixs` in `ty_custom_config.json`.
+Tuya Device hotspot name prefix defaults to `SmartLife`.  Can custom hotspot name prefix as your device's through setting `hotspotPrefixs` in `ty_custom_config.json`
 
 ```json
 {

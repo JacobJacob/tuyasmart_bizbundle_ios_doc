@@ -16,7 +16,7 @@
 
 ### 2、ZigBee 设备配网
 
-支持 ZigBee 网关和子设备配网。
+支持 ZigBee 网关和子设备配网
 
 | 名词        | 说明                                                         |
 | ----------- | ------------------------------------------------------------ |
@@ -25,7 +25,7 @@
 
 ### 3、蓝牙设备配网
 
-涂鸦蓝牙有三条技术线路，主要包括 SingleBLE、SigMesh、TuyaMesh 以及双模设备。
+涂鸦蓝牙有三条技术线路，主要包括 SingleBLE、SigMesh、TuyaMesh 以及双模设备
 
 | 名词      | 说明                                                     |
 | --------- | -------------------------------------------------------- |
@@ -87,7 +87,7 @@ NSCameraUsageDescription
 
 ### 1、蓝牙配网功能
 
-配网业务包支持 Wi-Fi  、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不需要蓝牙配网功能 ，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可。
+配网业务包支持 Wi-Fi  、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不需要蓝牙配网功能 ，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可
 
 如果需要蓝牙配网功能，首先需要在项目的 info.Plist 文件中添加蓝牙权限的声明，设置 `ty_custom_config.json` 中的 `needBle` 属性设置为 true，然后需要在项目中添加以下依赖：
 
@@ -126,7 +126,7 @@ NSBluetoothPeripheralUsageDescription
 
 ### 2、设备热点名称设置
 
-涂鸦设备热点前缀默认为 `SmartLife` , 若当前设备的热点前缀名称已修改，则需要在  `ty_custom_config.json` 文件中设置 `hotspotPrefixs` 属性，设置当前设备的热点前缀。
+涂鸦设备热点前缀默认为 `SmartLife` , 若当前设备的热点前缀名称已修改，则需要在  `ty_custom_config.json` 文件中设置 `hotspotPrefixs` 属性，设置当前设备的热点前缀
 
 ```json
 {
