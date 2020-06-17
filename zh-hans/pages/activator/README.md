@@ -14,9 +14,9 @@
 | AP 模式          | 又称热点模式，手机作为 STA 连接智能设备的热点，双方建立一个 Socket 连接通过约定端口交互数据。 |
 | IPC 设备扫码配网 | 摄像头设备通过扫描 App 上的二维码获取配网数据信息            |
 
-### 、ZigBee 设备配网
+### 2、ZigBee 设备配网
 
-支持 ZigBee 网关和子设备配网。
+支持 ZigBee 网关和子设备配网
 
 | 名词        | 说明                                                         |
 | ----------- | ------------------------------------------------------------ |
@@ -25,7 +25,7 @@
 
 ### 3、蓝牙设备配网
 
-涂鸦蓝牙有三条技术线路，主要包括 SingleBLE、SigMesh、TuyaMesh 以及双模设备。
+涂鸦蓝牙有三条技术线路，主要包括 SingleBLE、SigMesh、TuyaMesh 以及双模设备
 
 | 名词      | 说明                                                     |
 | --------- | -------------------------------------------------------- |
@@ -34,7 +34,7 @@
 | TuyaMesh  | 采用涂鸦自研的蓝牙拓扑通信                               |
 | 双模设备  | 支持多协议的设备，即同时具备 Wi-Fi 能力和 BLE 能力的设备 |
 
-### 、扫码配网设备
+### 4、扫码配网设备
 
 该类设备上电后即连接了涂鸦云服务，APP 通过扫描设备上的二维码（必须是涂鸦云服务支持的二维码规则，支持固件具体接入方式可咨询涂鸦科技相关商务及项目经理）使能设备去涂鸦云激活绑定
 
@@ -54,7 +54,7 @@
 在工程的 `Podfile` 文件中添加商城业务包组件，并执行 `pod update` 命令
 
 ```ruby
-source "https://github.com/TuyaInc/TYPublicSpecs.git"
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
@@ -87,7 +87,7 @@ NSCameraUsageDescription
 
 ### 1、蓝牙配网功能
 
-配网业务包支持 Wi-Fi  、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不需要蓝牙配网功能 ，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可。
+配网业务包支持 Wi-Fi  、蓝牙等类型的设备配网，其中蓝牙配网为可选项，如当前 App 不需要蓝牙配网功能 ，只需要将自定义 `ty_custom_config.json` 中的 `needBle` 属性设置为 false 即可
 
 如果需要蓝牙配网功能，首先需要在项目的 info.Plist 文件中添加蓝牙权限的声明，设置 `ty_custom_config.json` 中的 `needBle` 属性设置为 true，然后需要在项目中添加以下依赖：
 
@@ -126,7 +126,7 @@ NSBluetoothPeripheralUsageDescription
 
 ### 2、设备热点名称设置
 
-涂鸦设备热点前缀默认为 `SmartLife` , 若当前设备的热点前缀名称已修改，则需要在  `ty_custom_config.json` 文件中设置 `hotspotPrefixs` 属性，设置当前设备的热点前缀。
+涂鸦设备热点前缀默认为 `SmartLife` , 若当前设备的热点前缀名称已修改，则需要在  `ty_custom_config.json` 文件中设置 `hotspotPrefixs` 属性，设置当前设备的热点前缀
 
 ```json
 {
