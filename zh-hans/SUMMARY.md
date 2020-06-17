@@ -4,6 +4,7 @@
 * [业务包导航](./pages/biznav.md)
   * [H5 商城](./pages/mall/README.md)
   * [设备配网](./pages/activator/README.md) 
+<!-- * [消息中心](./pages/message/README.md) -->
 <!-- * [设备面板](./pages/panel/README.md) -->
 <!--  * [IPC 设备面板](./pages/ipc_panel/README.md) -->
 <!-- * [依赖关系](./pages/dependence.md) -->
