@@ -2,13 +2,13 @@
 
 ## 功能概述
 
-涂鸦智能 iOS IPC 业务包（ TuyaCameraPanelSDK ）是基于 [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/>) 开发的一系列摄像机功能相关的面板 SDK。主要包括以下功能：
+涂鸦智能 iOS IPC 业务包 （TuyaSmartCameraPanelBizBundle） 是基于 [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/>) 开发的一系列摄像机功能相关的面板 SDK。主要包括以下功能：
 
 - 预览面板，回放面板，云存储面板，消息中心面板，相册面板，设置面板。
 
 ## 接入组件
 
-在工程的 `Podfile` 文件中添加云存储服务业务包组件，并执行 `pod update` 命令
+在  ```Podfile``` 文件中加入以下代码：
 
 ```ruby
 source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
@@ -19,6 +19,10 @@ target 'your_target_name' do
   pod 'TuyaSmartCameraPanelBizBundle'
 end
 ```
+
+然后在项目根目录下执行 ```pod update``` 命令，集成第三方库。
+
+CocoaPods 的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 
 **注意**
 

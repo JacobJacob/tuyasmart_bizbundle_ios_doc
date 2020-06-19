@@ -1,44 +1,50 @@
-# 摄像机 Native 面板业务包
+# TuyaSmart iOS IPC biz Bundle
 
-## 功能概述
+## Functional Overview
 
-涂鸦智能 iOS IPC 业务包（ TuyaCameraPanelSDK ）是基于 [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/>) 开发的一系列摄像机功能相关的面板 SDK。主要包括以下功能：
+TuyaSmart iOS IPC biz Bundle is a series of panel SDK related to camera functions developed based on [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/>). It mainly includes the following functions:
 
-- 预览面板，回放面板，云存储面板，消息中心面板，相册面板，设置面板。
+-Preview panel, playback panel, cloud storage panel, message center panel, album panel, settings panel.
 
-## 接入组件
+## Integrate
 
-在工程的 `Podfile` 文件中添加云存储服务业务包组件，并执行 `pod update` 命令
+Add the following code to the ```Podfile``` file:
 
 ```ruby
 source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  # 添加摄像机面板业务包
+  # add cameraBizBundle
   pod 'TuyaSmartCameraPanelBizBundle'
 end
 ```
 
-**注意**
+Then execute the ``pod update`` command in the project root directory to integrate third-party libraries.
 
-设备控制业务包中封装了一系列 RN 接口供面板调用，其中会涉及到部分苹果隐私权限的声明。
+Please refer to the use of CocoaPods: [CocoaPods Guides](https://guides.cocoapods.org/)
 
-- 如果接入的设备面板有使用相册相关的（例如：相册），则需要在工程的 `info.plist` 中添加如下权限声明：
+**Note**
+
+The BizBundle encapsulates a series of RN interfaces for the panel to call, which will involve some of Apple's privacy rights statements.
+
+- If the connected device panel is related to the use of photo albums (for example: albums), you need to add the following permission statement in the project's `info.plist`:
 
 ```
 NSPhotoLibraryAddUsageDescription
 ```
 
-- 如果接入的设备面板有使用到麦克风（例如：摄像机对讲），则需要在工程的 `info.plist` 中添加如下权限声明：
+- If the connected device panel uses a microphone (for example: camera talk), you need to add the following permission statement in the project's `info.plist`:
 
 ```
 NSMicrophoneUsageDescription
 ```
 
-## 服务协议
+## Service Protocol
 
-摄像机业务包实现 `TYCameraProtocol` 协议以提供服务，在 `TYModuleServices` 组件中查看 `TYCameraProtocol.h` 协议文件内容为：
+### Provide Service
+
+BizBundle  provide services of  `TYCameraProtocol.h ` in `TYModuleServices` component as follows:
 
 ```objc
 #import <UIKit/UIKit.h>
@@ -48,52 +54,53 @@ NSMicrophoneUsageDescription
 @protocol TYCameraProtocol <NSObject>
 
 /**
- 获取摄像头Native面板
- @param devId 摄像头设备的devId
- @param uiName 摄像头设备的uiName，不同的uiName对应不同版本的面板 为deviceModel里的uiName属性
- */
+ * jump to device camera Native panel
+ *
+ * @param deviceId       DeviceModel.devId
+ * @param uiName         DeviceModel.uiName
+ */  
 - (UIViewController *)viewControllerWithDeviceId:(NSString *)devId uiName:(NSString *)uiName;
 
 @optional
 
 /**
- 跳转摄像头回放面板
- @param deviceModel 摄像头设备
+ jump to device camera playback panel
+ @param deviceModel DeviceModel
  */
 - (void)deviceGotoCameraNewPlayBackPanel:(TuyaSmartDeviceModel *)deviceModel;
 
 /**
- 跳转摄像头云存储面板
- @param deviceModel 摄像头设备
+ jump to device camera CloudStorage panel
+ @param deviceModel DeviceModel
  */
 - (void)deviceGotoCameraCloudStoragePanel:(TuyaSmartDeviceModel *)deviceModel;
 
 /**
- 跳转摄像头消息中心面板
- @param deviceModel 摄像头设备
+ jump to device camera CameraMessageCenter panel
+ @param deviceModel DeviceModel
  */
 - (void)deviceGotoCameraMessageCenterPanel:(TuyaSmartDeviceModel *)deviceModel;
 
 /**
- 跳转摄像头相册面板
- @param deviceModel 摄像头设备
+ jump to device camera PhotoLibrary panel
+ @param deviceModel DeviceModel
  */
 - (void)deviceGotoPhotoLibrary:(TuyaSmartDeviceModel *)deviceModel;
 
 @end
 ```
 
-### 依赖服务
+### Dependent Services
 
-设备控制业务包主要功能为加载设备，针对不同设备会有不同的一些功能，为保证这些功能正常运行，会依赖如下几个协议： `TYSmartHomeDataProtocol`、 `TYOTAGeneralProtocol` 。
+The main function of the biz bundle is to load the device, and there will be different functions for different devices. To ensure the normal operation of these functions, it will rely on the following protocols： `TYSmartHomeDataProtocol` 、 `TYOTAGeneralProtocol`。
 
 #### TYSmartHomeDataProtocol
 
-提供加载设备面板所需的当前家庭信息，**必须实现**
+Provide the current family information required to load the device panel, **must be implemented**
 
 ```objc
 /**
- 获取当前的家庭，当前没有家庭的时候，返回nil。
+ Get the current family. If there is no family, return nil.
  
  @return TuyaSmartHome
  */
@@ -102,30 +109,26 @@ NSMicrophoneUsageDescription
 
 #### TYOTAGeneralProtocol
 
-进入设备面板时，提供检查设备固件更新的事件。实现如下方法用于检查固件升级：
+When entering the device panel, provide an event to check the device firmware update. Implement the following method to check the firmware upgrade:
 
 ```objc
 /**
- 检查设备固件更新，如果有更新会显示展示出固件更新提示
+ Check the device firmware update, if there is an update, it will display the firmware update prompt
  
- @param deviceModel 需要检查固件升级的设备
- @param isManual 是否手动检测升级
-  @param theme 主题色
- YES: 手动检测升级，检测时弹出loading框。当有固件新版本时(检测升级、强制升级、提醒升级)，显示OTA VC。
- NO: 自动检测升级, 检测时不弹出loading框。当有强制升级时、提醒升级时，弹出固件升级提示，点确定后显示OTA VC。
+ @param deviceModel DeviceModel
+ @param isManual Whether to manually detect the upgrade
+ @param theme theme color
  */
 - (void)checkFirmwareUpgrade:(TuyaSmartDeviceModel *)deviceModel isManual:(BOOL)isManual theme:(TYOTAControllerTheme)theme;
 ```
 
-#### 
+## Guidance
 
-## 使用指南
+### Attention
 
-### 注意事项
-
-1. 使用任何接口之前，务必确认该设备在当前用户下。
-2. 此接口，只适用于摄像机设备调用，即 deviceModel.category 为 “sp” 类型的设备。
-3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+1. Make sure that the user is logged in before using any interface
+2. This interface is only fit for camera device, which device.deviceModel.category is 'sp'.
+3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
 
 Objective-C 
 
@@ -134,13 +137,13 @@ Objective-C
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
 
 - (void)initCurrentHome {
-    // 注册要实现的协议
+    // register service
     [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
 }
 
-// 实现对应的协议方法
+// implementation
 - (TuyaSmartHome *)getCurrentHome {
-    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"当前家庭id"];
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"current hid"];
     return home;
 }
 ```
@@ -166,9 +169,9 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 
 ### 
 
-### 获取预览面板 (UIViewController)
+### Obtain Preview Panel (UIViewController)
 
-摄像机原生预览面板，包括视频实时预览，清晰度切换，声音开关控制，截图，录制，对讲等功能，移动侦测，PTZ 方向控制，收藏点添加/删除，巡航控制等。
+Camera native preview panel, including real-time video preview, sharpness switch, sound switch control, screenshot, recording, intercom and other functions, motion detection, PTZ direction control, favorite point addition / deletion, cruise control, etc.
 
 Objc
 
