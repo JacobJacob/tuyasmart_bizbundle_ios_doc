@@ -1,4 +1,4 @@
-[Native 面板](./pages/ipc_panel/Native_Panel/README.md) 
+[Native 面板](./Native_Panel/README.md) 
 
-[ReactNative 面板](./pages/ipc_panel/RN_Panel/README.md) 
+[ReactNative 面板](./RN_Panel/README.md) 
 
