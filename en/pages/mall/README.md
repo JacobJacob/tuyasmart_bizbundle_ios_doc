@@ -109,7 +109,7 @@ Two pages are currently provided:
 
 you can obtain the corresponding page to display according to your needs
 
-Objective-C 示例
+Objective-C
 
 ```oc
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
@@ -122,7 +122,7 @@ id<TYMallProtocol> mallImpl = [[TuyaSmartBizCore sharedInstance] serviceOfProtoc
 }];
 ```
 
-Swift 示例
+Swift
 
 ```swift
 let mallImpl = TuyaSmartBizCore.sharedInstance().service(of: TYMallProtocol.self)

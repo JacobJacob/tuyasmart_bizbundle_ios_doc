@@ -273,7 +273,7 @@ Objective-C
 
 
 
-Swfit 
+Swift 
 
 ```swift
 let homeImpl = TuyaSmartBizCore.sharedInstance().service(of: TYActivatorProtocol.self) as? TYActivatorProtocol

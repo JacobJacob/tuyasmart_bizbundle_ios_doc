@@ -97,9 +97,15 @@
  *                  @return true if route can be handled, otherwise return false
  */
 - (void)registerRouteWithHandler:(BOOL(^)(NSString *url, NSDictionary *raw))handler;
+
+/**
+* Update config of biz resource
+*
+*/
+- (void)updateConfig;
 ```
 
-
+> 账号登录成功后，务必调用`- (void)updateConfig`接口更新必要的缓存数据，否则部分业务包将无法正常使用。
 
 ### 服务协议 (TYModuleServices)
 
