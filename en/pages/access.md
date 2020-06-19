@@ -93,9 +93,15 @@ The BizCore provides the method to get instance which conformed BizBundle servic
  *                  @return true if route can be handled, otherwise return false
  */
 - (void)registerRouteWithHandler:(BOOL(^)(NSString *url, NSDictionary *raw))handler;
+
+/**
+* Update config of biz resource
+*
+*/
+- (void)updateConfig;
 ```
 
-
+> After the account is successfully logged in,  call `-(void) updateConfig` to update the necessary cached data, otherwise some bizBundles will not be used normally.
 
 ### TYModuleServices
 
