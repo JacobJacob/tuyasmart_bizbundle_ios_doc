@@ -15,6 +15,7 @@
     * [IPC ReactNative bizBundle](./pages/ipc_panel/RN_Panel/README.md)
   
     <!-- * [依赖关系](./pages/dependence.md) -->
+  * [Smart Scene](./pages/scene/README.md)
 * [FAQ](./pages/faq.md)
 * [Changelog](./pages/updates.md)
 
