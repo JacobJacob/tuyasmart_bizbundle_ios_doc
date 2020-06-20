@@ -1,4 +1,4 @@
-# Network Configuration BizBundle
+# Device Configuration BizBundle
 
 ## Features
 
