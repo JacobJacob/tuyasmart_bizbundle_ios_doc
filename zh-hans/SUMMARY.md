@@ -16,6 +16,7 @@
     * [摄像机 ReactNative 业务包](./pages/ipc_panel/RN_Panel/README.md)
 
     <!-- * [依赖关系](./pages/dependence.md) -->
+  * [智能场景](./pages/scene/README.md)
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
 
