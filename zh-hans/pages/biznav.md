@@ -4,8 +4,11 @@
 
 ## 业务包列表
 
-| 组件                        | 内容说明         | 注意 |
-| :-------------------------- | ---------------- | ---- |
-| TuyaSmartMallBizBundle      | 提供商城功能     | 可选 |
-| TuyaSmartActivatorBizBundle | 提供设备配网功能 | 可选 |
+| 组件                            | 内容说明                             |
+| :------------------------------ | ------------------------------------ |
+| TuyaSmartMallBizBundle          | 提供商城功能                         |
+| TuyaSmartActivatorBizBundle     | 提供设备配网功能                     |
+| TuyaSmartPanelBizBundle         | 提供设备控制面板                     |
+| TuyaSmartCameraPanelBizBundle   | 提供摄像机设备原生控制面板           |
+| TuyaSmartCameraRNPanelBizBundle | 提供摄像机设备 React-Native 控制面板 |
 
