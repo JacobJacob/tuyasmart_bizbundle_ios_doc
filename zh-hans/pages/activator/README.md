@@ -51,7 +51,7 @@
 
 ## 接入组件
 
-在工程的 `Podfile` 文件中添加商城业务包组件，并执行 `pod update` 命令
+在工程的 `Podfile` 文件中添加配网业务包组件，并执行 `pod update` 命令
 
 ```ruby
 source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
