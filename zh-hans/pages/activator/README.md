@@ -234,7 +234,7 @@ Objective-C 示例
 
 
 
-Swfit 示例
+Swift 示例
 
 ```swift
 import TuyaSmartDeviceKit
