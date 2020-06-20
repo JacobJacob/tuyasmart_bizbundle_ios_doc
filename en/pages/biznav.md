@@ -8,4 +8,7 @@ Tuya currently provides the following BizBundles, one or more of which can be us
 | --------------------------- | ------------------------------------------------ |
 | TuyaSmartMallBizBundle      | Provide h5 mall function                                     |
 | TuyaSmartActivatorBizBundle | Provide device network configuration function |
+| TuyaSmartPanelBizBundle | Provide device control panel |
+| TuyaSmartCameraPanelBizBundle | Provide camera native panel |
+| TuyaSmartCameraRNPanelBizBundle | Provide camera react-native panel |
 

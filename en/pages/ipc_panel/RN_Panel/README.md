@@ -15,8 +15,8 @@ source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  # add cameraBizBundle
-  pod 'TuyaSmartCameraPanelBizBundle'
+  # add cameraRNPanelBizBundle
+  pod 'TuyaSmartCameraRNPanelBizBundle'
 end
 ```
 
@@ -44,48 +44,18 @@ NSMicrophoneUsageDescription
 
 ### Provide Service
 
-BizBundle  provide services of  `TYCameraProtocol.h ` in `TYModuleServices` component as follows:
+BizBundle  provide services of  `TYRNCameraProtocol.h ` in `TYModuleServices` component as follows:
 
 ```objc
 #import <UIKit/UIKit.h>
 
-@class TuyaSmartDeviceModel;
-
-@protocol TYCameraProtocol <NSObject>
+@protocol TYRNCameraProtocol <NSObject>
 
 /**
- * jump to device camera Native panel
- *
- * @param deviceId       DeviceModel.devId
- * @param uiName         DeviceModel.uiName
- */  
-- (UIViewController *)viewControllerWithDeviceId:(NSString *)devId uiName:(NSString *)uiName;
-
-@optional
-
-/**
- jump to device camera playback panel
- @param deviceModel DeviceModel
+ obtain camera RN Panel
+ @param devId deviceModel.devId
  */
-- (void)deviceGotoCameraNewPlayBackPanel:(TuyaSmartDeviceModel *)deviceModel;
-
-/**
- jump to device camera CloudStorage panel
- @param deviceModel DeviceModel
- */
-- (void)deviceGotoCameraCloudStoragePanel:(TuyaSmartDeviceModel *)deviceModel;
-
-/**
- jump to device camera CameraMessageCenter panel
- @param deviceModel DeviceModel
- */
-- (void)deviceGotoCameraMessageCenterPanel:(TuyaSmartDeviceModel *)deviceModel;
-
-/**
- jump to device camera PhotoLibrary panel
- @param deviceModel DeviceModel
- */
-- (void)deviceGotoPhotoLibrary:(TuyaSmartDeviceModel *)deviceModel;
+- (UIViewController *)cameraRNPanelViewControllerWithDeviceId:(NSString *)devId;
 
 @end
 ```
@@ -168,27 +138,6 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 ```
 
 ### 
-
-### Obtain Preview Panel (UIViewController)
-
-Camera native preview panel, including real-time video preview, sharpness switch, sound switch control, screenshot, recording, intercom and other functions, motion detection, PTZ direction control, favorite point addition / deletion, cruise control, etc.
-
-Objc
-
-```objc
-id<TYCameraProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYCameraProtocol)];
-UIViewController *vc = [impl viewControllerWithDeviceId:self.deviceModel.devId uiName:self.device.uiName];
-[self.navigationController pushViewController:vc animated:YES];
-```
-
-Swift
-
-```objc
-let impl = TuyaSmartBizCore.sharedInstance().service(of: TYCameraProtocol.self) as? TYCameraProtocol
-impl?.viewControllerWithDeviceId(withDeviceId: deviceModel.devId!, uiName: deviceModel.uiName) 
-```
-
-
 
 ### Obtain Preview Panel (UIViewController)
 
