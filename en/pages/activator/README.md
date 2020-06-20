@@ -229,7 +229,7 @@ Objective-C
 
 
 
-Swfit 
+Swift 
 
 ```swift
 import TuyaSmartDeviceKit
