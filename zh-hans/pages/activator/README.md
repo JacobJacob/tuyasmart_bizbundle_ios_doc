@@ -184,6 +184,18 @@ typedef NS_ENUM(NSUInteger, TYActivatorCompletionNode) {
 
 ```
 
+若需要自定义配网品类/产品列表返回，需要实现 `TYActivatorExternalExtensionProtocol` 提供的协议方法
+
+**TYActivatorExternalExtensionProtocol**
+
+```objc
+/**
+ *  Back action form category View Controller
+ *  Need to implement when additional operations are needed
+ */
+- (BOOL)categoryViewControllerCustomBackAction;
+```
+
 
 
 ### 依赖服务
@@ -291,3 +303,52 @@ impl?.activatorCompletion(TYActivatorCompletionNodeNormal, customJump: false, co
 
 
 
+### 自定义配网品类列表返回
+
+Objective-C 示例
+
+```objc
+#import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+#import <TYModuleServices/TYActivatorExternalExtensionProtocol.h>
+
+
+- (void)initCurrentHome {
+    // 注册要实现的协议
+    [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYActivatorExternalExtensionProtocol) withInstance:self];
+}
+
+// 实现对应的协议方法
+- (BOOL)categoryViewControllerCustomBackAction {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    return YES;
+}
+```
+
+
+
+Swift 示例  
+
+```swift
+
+class TYActivatorTest: NSObject,TYActivatorExternalExtensionProtocol{
+
+    
+    func test() {
+ TuyaSmartBizCore.sharedInstance().registerService(TYActivatorExternalExtensionProtocol.self, withInstance: self)
+    }
+    
+    func categoryViewControllerCustomBackAction() -> Bool {
+        self.navigationController?.popToRootViewController(animated: true)
+        return true;
+    }
+    
+}
+```
+
+
+
+
+
+## 更新记录
+
+- 2020.7.2 添加自定义配网品类/产品列表返回方法

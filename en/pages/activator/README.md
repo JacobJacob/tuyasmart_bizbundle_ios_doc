@@ -181,6 +181,20 @@ BizBundle  provide services of  `TYActivatorProtocol.h ` in `TYModuleServices` c
 
 
 
+Custom the return operation form device config list View , you need to implement the protocol method provided by TYActivatorExternalExtensionProtocol
+
+**TYActivatorExternalExtensionProtocol**
+
+```objc
+/**
+ *  Back action form device config list View
+ *  Need to implement when additional operations are needed
+ */
+- (BOOL)categoryViewControllerCustomBackAction;
+```
+
+
+
 ### Dependent Services
 
 BizBundle running depends on the protocol method provided by TYSmartHomeDataProtocol. Before calling the BizBundle method, the following protocol needs to be implemented
@@ -285,3 +299,52 @@ impl?.activatorCompletion(TYActivatorCompletionNodeNormal, customJump: false, co
 ```
 
 
+
+### Custom  the Return Operation Form Category View Controller
+
+Objective-C 
+
+```objc
+#import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+#import <TYModuleServices/TYActivatorExternalExtensionProtocol.h>
+
+
+- (void)initCurrentHome {
+  // register service
+    [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYActivatorExternalExtensionProtocol) withInstance:self];
+}
+
+// implementation
+- (BOOL)categoryViewControllerCustomBackAction {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    return YES;
+}
+```
+
+
+
+Swift 
+
+```swift
+
+class TYActivatorTest: NSObject,TYActivatorExternalExtensionProtocol{
+
+    func test() {
+      // register service
+ TuyaSmartBizCore.sharedInstance().registerService(TYActivatorExternalExtensionProtocol.self, withInstance: self)
+    }
+    
+  // implementation
+    func categoryViewControllerCustomBackAction() -> Bool {
+        self.navigationController?.popToRootViewController(animated: true)
+        return true;
+    }
+    
+}
+```
+
+
+
+## Change Log
+
+- 2020.07.02  Add custom return  method form device config list View 
