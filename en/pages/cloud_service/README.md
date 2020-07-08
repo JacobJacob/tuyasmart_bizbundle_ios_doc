@@ -18,8 +18,6 @@ end
 
 ## Service protocol
 
-云存储服务业务包实现 `TYCameraCloudServiceProtocol` 协议以提供服务，在 `TYModuleServices` 组件中查看 `TYCameraCloudServiceProtocol.h` 协议文件内容为：
-
 The cloud service bizBundle implements the `TYCameraCloudServiceProtocol` protocol to provide services. View the` TYCameraCloudServiceProtocol.h` file in the `TYModuleServices` as follows:
 
 ```objc
