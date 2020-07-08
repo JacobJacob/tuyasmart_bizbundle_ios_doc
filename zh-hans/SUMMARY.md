@@ -6,6 +6,7 @@
   * [设备配网](./pages/activator/README.md) 
   * [设备控制](./pages/panel/README.md)
   * [摄像机业务包](./pages/ipc_panel/README.md)
+  * [云存储服务](./pages/cloud_service/README.md)
   * [智能场景](./pages/scene/README.md)
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
