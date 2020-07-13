@@ -44,8 +44,8 @@
 | 参数            | 说明                         | 类型 | 必选 | 默认值 |
 | --------------- | ---------------------------- |-| - | -|
 | appId           | 应用 Id，在涂鸦开发者平台进入您的应用/SDK管理页面，页面 URL 中的 id 参数即为 appId，例如链接为 https://iot.tuya.com/oem/app?id=888888，则 appId 为 888888 | Number | 是 | 无 |
-| tyAppKey        | 涂鸦开发者平台生成的 App Key | String | 是 | 无 |
-| appScheme       | App Scheme                   | String | 是 | 无 |
+| tyAppKey        | 涂鸦开发者平台-App工作台-AppSDK 你的应用中的 AppKey | String | 是 | 无 |
+| appScheme       | 涂鸦开发者平台-App工作台-AppSDK 你的应用中的「渠道标识符」                   | String | 是 | 无 |
 | hotspotPrefixs  | 配网设备热点前缀             | Array | 否 | ["SmartLife"] |
 | needBle         | 是否需要支持蓝牙设备配网     | Boolean | 否 | true |
 | themeColor      | UI 主题色设置                | String | 否 | #FF5A28 |
