@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_END
 
 1. 在使用任何接口之前，务必确认用户已登录
 
-2. 调用配网业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+2. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
    Objective-C 示例
 
    ```objective-c
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_END
    ```swift
    import TuyaSmartDeviceKit
    
-   class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
+   class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
    
        
        func test() {
