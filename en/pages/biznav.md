@@ -11,4 +11,5 @@ Tuya currently provides the following BizBundles, one or more of which can be us
 | TuyaSmartPanelBizBundle | Provide device control panel |
 | TuyaSmartCameraPanelBizBundle | Provide camera native panel |
 | TuyaSmartCameraRNPanelBizBundle | Provide camera react-native panel |
+| TuyaSmartMessageBizBundle | Provide message center function |
 

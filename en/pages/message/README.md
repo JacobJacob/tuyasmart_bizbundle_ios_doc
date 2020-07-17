@@ -1,8 +1,8 @@
-# Message Center Business Bundle
+# Message Center BizBundle
 
 ## Introduction
 
-The message center business bundle provides the business logic of the message center of Tuya APP. The business functions mainly cover the push historical records of various types of messages, mainly including three categories of alarms, homes, and notifications. The alarms include device alarms, scene automation and other execution records.
+The message center bizBundle provides the business logic of the message center of Tuya APP. The business functions mainly cover the push historical records of various types of messages, mainly including three categories of alarms, homes, and notifications. The alarms include device alarms, scene automation and other execution records.
 The setting page of the message center can enable or disable various types of message push. For alarm messages, it can support adding no-disturb periods to the device.
 
 
@@ -72,7 +72,7 @@ Set current home infomation  by implementing the following method.
 
 1. Make sure that the user is logged in before using any interface
 
-2. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
+2. Before using bizBundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
    Objective-C 
 
    ```objective-c
@@ -97,7 +97,7 @@ Set current home infomation  by implementing the following method.
    ```swift
    import TuyaSmartDeviceKit
    
-   class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
+   class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
    
        
        func test() {
@@ -126,7 +126,7 @@ Objective-C
 
 
 - (void)gotoDeviceConfig {
-    id<TYActivatorProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYMessageCenterProtocol)];
+    id<TYMessageCenterProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYMessageCenterProtocol)];
     [impl gotoMessageCenterViewControllerWithAnimated:YES];
 }
 ```

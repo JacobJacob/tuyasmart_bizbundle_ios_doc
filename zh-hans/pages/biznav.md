@@ -11,4 +11,5 @@
 | TuyaSmartPanelBizBundle         | 提供设备控制面板                     |
 | TuyaSmartCameraPanelBizBundle   | 提供摄像机设备原生控制面板           |
 | TuyaSmartCameraRNPanelBizBundle | 提供摄像机设备 React-Native 控制面板 |
+| TuyaSmartMessageBizBundle       | 提供消息中心功能                     |
 
