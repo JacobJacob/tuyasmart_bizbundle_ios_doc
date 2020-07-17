@@ -8,6 +8,7 @@
   * [IPC Device bizBundle](./pages/ipc_panel/README.md)
   * [Cloud Service](./pages/cloud_service/README.md)
   * [Smart Scene](./pages/scene/README.md)
+  * [FAQ BizBundle](./pages/faq/README.md)
 * [FAQ](./pages/faq.md)
 * [Changelog](./pages/updates.md)
 
