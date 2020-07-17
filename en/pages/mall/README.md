@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, TYMallPageType) {
 ```
 
 ### Service Required By BizBundle
-无
+None.
 
 ## User Guidance
 
