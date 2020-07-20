@@ -72,7 +72,9 @@ Set current home infomation  by implementing the following method.
 
 1. Make sure that the user is logged in before using any interface
 
-2. Before using bizBundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
+2. When the login user changes, be sure to re-judge the mall availability status and re-acquire the mall page
+
+3. Before using bizBundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
 
 Objective-C 
 
@@ -113,7 +115,6 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
-3. When the login user changes, be sure to re-judge the mall availability status and re-acquire the mall page
 
 
 

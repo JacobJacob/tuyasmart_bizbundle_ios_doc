@@ -72,7 +72,9 @@ NS_ASSUME_NONNULL_END
 
 1. 在使用任何接口之前，务必确认用户已登录
 
-2. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+2. 登录用户发生变化时，务必重新判断消息中心可用状态并重新获取消息中心页面
+
+3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
 
 Objective-C 示例
 
@@ -113,7 +115,6 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
-3. 登录用户发生变化时，务必重新判断消息中心可用状态并重新获取消息中心页面
 
 
 
