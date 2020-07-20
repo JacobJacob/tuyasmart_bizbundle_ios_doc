@@ -73,44 +73,45 @@ NS_ASSUME_NONNULL_END
 1. 在使用任何接口之前，务必确认用户已登录
 
 2. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
-   Objective-C 示例
 
-   ```objective-c
-   #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
-   #import <TYModuleServices/TYSmartHomeDataProtocol.h>
-   
-   
-   - (void)initCurrentHome {
-       // 注册要实现的协议
-       [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
-   }
-   
-   // 实现对应的协议方法
-   - (TuyaSmartHome *)getCurrentHome {
-       TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"当前家庭id"];
-       return home;
-   }
-   ```
+Objective-C 示例
 
-   Swfit 示例
+```objective-c
+#import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+#import <TYModuleServices/TYSmartHomeDataProtocol.h>
 
-   ```swift
-   import TuyaSmartDeviceKit
-   
-   class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
-   
-       
-       func test() {
-           TuyaSmartBizCore.sharedInstance().registerService(TYSmartHomeDataProtocol.self, withInstance: self)
-       }
-       
-       func getCurrentHome() -> TuyaSmartHome! {
-           let home = TuyaSmartHome.init(homeId: 111)
-           return home
-       }
-       
-   }
-   ```
+
+- (void)initCurrentHome {
+    // 注册要实现的协议
+    [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
+}
+
+// 实现对应的协议方法
+- (TuyaSmartHome *)getCurrentHome {
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"当前家庭id"];
+    return home;
+}
+```
+
+Swfit 示例
+
+```swift
+import TuyaSmartDeviceKit
+
+class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
+
+    
+    func test() {
+        TuyaSmartBizCore.sharedInstance().registerService(TYSmartHomeDataProtocol.self, withInstance: self)
+    }
+    
+    func getCurrentHome() -> TuyaSmartHome! {
+        let home = TuyaSmartHome.init(homeId: 111)
+        return home
+    }
+    
+}
+```
 
 3. 登录用户发生变化时，务必重新判断消息中心可用状态并重新获取消息中心页面
 
