@@ -73,44 +73,45 @@ Set current home infomation  by implementing the following method.
 1. Make sure that the user is logged in before using any interface
 
 2. Before using bizBundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
-   Objective-C 
 
-   ```objective-c
-   #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
-   #import <TYModuleServices/TYSmartHomeDataProtocol.h>
-   
-   
-   - (void)initCurrentHome {
-       // register service
-       [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
-   }
-   
-   // implementation
-   - (TuyaSmartHome *)getCurrentHome {
-       TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"current home id"];
-       return home;
-   }
-   ```
+Objective-C 
 
-   Swfit 
+```objective-c
+#import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+#import <TYModuleServices/TYSmartHomeDataProtocol.h>
 
-   ```swift
-   import TuyaSmartDeviceKit
-   
-   class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
-   
-       
-       func test() {
-           TuyaSmartBizCore.sharedInstance().registerService(TYSmartHomeDataProtocol.self, withInstance: self)
-       }
-       
-       func getCurrentHome() -> TuyaSmartHome! {
-           let home = TuyaSmartHome.init(homeId: 111)
-           return home
-       }
-       
-   }
-   ```
+
+- (void)initCurrentHome {
+    // register service
+    [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
+}
+
+// implementation
+- (TuyaSmartHome *)getCurrentHome {
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"current home id"];
+    return home;
+}
+```
+
+Swfit 
+
+```swift
+import TuyaSmartDeviceKit
+
+class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
+
+    
+    func test() {
+        TuyaSmartBizCore.sharedInstance().registerService(TYSmartHomeDataProtocol.self, withInstance: self)
+    }
+    
+    func getCurrentHome() -> TuyaSmartHome! {
+        let home = TuyaSmartHome.init(homeId: 111)
+        return home
+    }
+    
+}
+```
 
 3. When the login user changes, be sure to re-judge the mall availability status and re-acquire the mall page
 
