@@ -188,7 +188,7 @@ UIViewController *vc = [impl viewControllerWithDeviceId:self.deviceModel.devId u
 
 Swift
 
-```objc
+```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYCameraProtocol.self) as? TYCameraProtocol
 impl?.viewControllerWithDeviceId(withDeviceId: deviceModel.devId!, uiName: deviceModel.uiName) 
 ```
@@ -213,6 +213,8 @@ source 'https://cdn.cocoapods.org/'
 target 'your_target_name' do
   # 添加面板控制业务包
   pod 'TuyaSmartPanelBizBundle'
+  # 添加摄像机面板业务包 接入RN页面包的同时，也接入该业务包，使得原生相册等功能也可以正常使用。
+  pod 'TuyaSmartCameraPanelBizBundle'
   # 添加摄像机 RN 面板业务包
   pod 'TuyaSmartCameraRNPanelBizBundle'
 end
@@ -297,6 +299,7 @@ NSMicrophoneUsageDescription
 1. 使用任何接口之前，务必确认该设备在当前用户下。
 2. 此接口，只适用于摄像机设备调用，即 deviceModel.category 为 “sp” 类型的设备。
 3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+4. 接入此业务包后，必须同时也接入 `TuyaSmartCameraPanelBizBundle` 业务包，因为有些相关功能代码（例如摄像机相册面板代码等）在该业务包中。
 
 Objective-C 
 
@@ -335,6 +338,23 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
+**注意**
+`TYRNCameraProtocol` 的协议方法，只有在需要实现自定义摄像机RN面板（返回自定义的摄像机面板）的情况下，才需要自己去注册和实现，默认 `TuyaSmartPanelBizBundle` 业务包内部会有对应的实现逻辑。 
+
+### 注册 TYRNCameraProtocol 协议
+
+Objc
+
+```objc
+[[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYRNCameraProtocol) withInstance:self];
+```
+
+Swift
+
+```swift
+TuyaSmartBizCore.sharedInstance().registerService(TYRNCameraProtocol.self, withInstance: self)
+```
+
 ### 获取预览面板 (UIViewController)
 
 摄像机RN预览面板，包括视频实时预览，清晰度切换，声音开关控制，截图，录制，对讲等功能。
@@ -349,7 +369,7 @@ UIViewController *vc = [impl cameraRNPanelViewControllerWithDeviceId:self.device
 
 Swift
 
-```objc
+```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYRNCameraProtocol.self) as? TYRNCameraProtocol
 impl?.cameraRNPanelViewControllerWithDeviceId(withDeviceId: deviceModel.devId!) 
 ```
