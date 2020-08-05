@@ -339,8 +339,8 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 ```
 
 **注意**
-`TYRNCameraProtocol` 的协议方法，只有在需要实现自定义摄像机RN面板（返回自定义的摄像机面板）的情况下，才需要自己去注册和实现，默认 `TuyaSmartPanelBizBundle` 业务包内部会有对应的实现逻辑。 
 
+`TYRNCameraProtocol` 的协议方法，只有在需要实现自定义摄像机RN面板（返回自定义的摄像机面板）的情况下，才需要自己去注册和实现，默认 `TuyaSmartPanelBizBundle` 业务包内部会有对应的实现逻辑。 
 ### 注册 TYRNCameraProtocol 协议
 
 Objc
