@@ -335,10 +335,11 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
+### register TYRNCameraProtocol protocol
+
 **Note**
 
 The protocol method of `TYRNCameraProtocol` only needs to be registered and implemented by yourself if you need to implement a custom camera RN panel (to return to a custom camera panel), the default `TuyaSmartPanelBizBundle` service pack has the corresponding implementation logic.
-### register TYRNCameraProtocol protocol
 
 Objc
 
