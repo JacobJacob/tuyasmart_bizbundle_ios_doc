@@ -187,7 +187,7 @@ UIViewController *vc = [impl viewControllerWithDeviceId:self.deviceModel.devId u
 
 Swift
 
-```objc
+```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYCameraProtocol.self) as? TYCameraProtocol
 impl?.viewControllerWithDeviceId(withDeviceId: deviceModel.devId!, uiName: deviceModel.uiName) 
 ```
@@ -210,6 +210,8 @@ source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
+	# Adding the camera panel service pack Connecting to the RN page bread also connects to this service pack, so that native albums and other functions can also be used.
+  pod 'TuyaSmartCameraPanelBizBundle'
   # add cameraRNPanelBizBundle
   pod 'TuyaSmartCameraRNPanelBizBundle'
 end
@@ -294,6 +296,7 @@ When entering the device panel, provide an event to check the device firmware up
 1. Make sure that the user is logged in before using any interface
 2. This interface is only fit for camera device, which device.deviceModel.category is 'sp'.
 3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
+4. After accessing this service pack, you must also access the `TuyaSmartCameraPanelBizBundle` service pack, because some related function codes (such as camera album panel codes, etc.) are included in this service pack.
 
 Objective-C 
 
@@ -332,7 +335,23 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
-### 
+### register TYRNCameraProtocol protocol
+
+**Note**
+
+The protocol method of `TYRNCameraProtocol` only needs to be registered and implemented by yourself if you need to implement a custom camera RN panel (to return to a custom camera panel), the default `TuyaSmartPanelBizBundle` service pack has the corresponding implementation logic.
+
+Objc
+
+```objc
+[[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYRNCameraProtocol) withInstance:self];
+```
+
+Swift
+
+```swift
+TuyaSmartBizCore.sharedInstance().registerService(TYRNCameraProtocol.self, withInstance: self)
+```
 
 ### Obtain Preview Panel (UIViewController)
 
@@ -348,7 +367,7 @@ UIViewController *vc = [impl cameraRNPanelViewControllerWithDeviceId:self.device
 
 Swift
 
-```objc
+```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYRNCameraProtocol.self) as? TYRNCameraProtocol
 impl?.cameraRNPanelViewControllerWithDeviceId(withDeviceId: deviceModel.devId!) 
 ```
