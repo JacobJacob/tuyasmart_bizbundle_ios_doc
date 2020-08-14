@@ -318,3 +318,39 @@ impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialPr
 })
 ```
 
+### 常见问题
+
+**1. 为什么调用 Push 方式跳转面板之后，其他视图控制器的导航栏样式变了？**
+
+设备控制业务包本质是提供一个视图控制器来加载 React-Native 渲染的界面，所以该视图控制器内部将导航栏进行了相关的隐藏处理，主要是改变了透明度。因此在使用 push 方式进入面板控制器之后，pop 回自身控制器时，需要将样式还原（主要原因是 iOS 提供的 push 和 pop 动画是使用 NavigationController 来管理的，其中使用的 NavigationBar 是唯一的；在 NavigationController 的 Stack 存储结构下，每当 Stack 中的 ViewController 修改了导航栏，势必会影响其他 ViewController 展示的效果）。以下建议两种样式还原方式：
+
+方式一：
+
+```objective-c
+// 1. 导入头文件
+#import <TYNavigationController/TYNavigationTopBarProtocol.h>
+// 2. 显示导航栏
+self.ty_topBarHidden = NO;
+self.ty_topBarAlpha = 1.0;
+// 3. 还原导航栏样式(例如：修改背景色)
+self.ty_topBarBackgroundImage = <#Image#>;
+// Or
+self.ty_topBarBackgroundColor = <#Color#>;
+```
+
+方式二：
+
+```objective-c
+// 1. 导入头文件
+#import <TYNavigationController/TYNavigationCallbackProtocol.h>
+// 2. 实现 TYNavigationCallbackProtocol 提供的代理方法
+- (void)ty_naviTransitioning:(id<UIViewControllerTransitionCoordinatorContext>)context {
+    // 3. 显示导航栏
+    [self.navigationController setNavigationBarHidden:false animated:true];
+    // 4. 还原导航栏样式(例如：修改背景色)
+    [self.navigationController.navigationBar setBarTintColor:<#Color#>];
+  	// Or
+    [self.navigationController.navigationBar setBackgroundImage:<#Image#> forBarMetrics:UIBarMetricsDefault];
+}
+```
+
