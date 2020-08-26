@@ -12,4 +12,5 @@
   * [Message Center](./pages/message/README.md)
 * [FAQ](./pages/faq.md)
 * [Changelog](./pages/updates.md)
+* [Versions](./pages/versions.md)
 

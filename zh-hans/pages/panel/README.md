@@ -318,7 +318,7 @@ impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialPr
 })
 ```
 
-### 常见问题
+## 常见问题
 
 **1. 为什么调用 Push 方式跳转面板之后，其他视图控制器的导航栏样式变了？**
 

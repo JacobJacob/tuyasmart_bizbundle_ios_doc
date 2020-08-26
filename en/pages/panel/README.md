@@ -315,7 +315,7 @@ impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialPr
 })
 ```
 
-### FAQ
+## FAQ
 
 **1. Why does the navigation bar style of other view controllers change after calling the Push method to jump to the panel?**
 
