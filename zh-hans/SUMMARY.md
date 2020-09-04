@@ -12,4 +12,5 @@
   * [消息中心](./pages/message/README.md)
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
+* [版本记录](./pages/versions.md)
 
