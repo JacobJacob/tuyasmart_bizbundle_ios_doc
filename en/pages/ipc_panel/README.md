@@ -130,9 +130,10 @@ When entering the device panel, provide an event to check the device firmware up
 
 ### Attention
 
-1. Make sure that the user is logged in before using any interface
+1. Make sure that the user is logged in before using any interface.
 2. This interface is only fit for camera device, which device.deviceModel.category is 'sp'.
-3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
+3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`.
+4. This business package is mutually exclusive with the previous TuyaSmartCameraPanelSDK. The two cannot coexist. Please check the [Migration Guide](https://tuyainc.github.io/tuyasmart_camera_panel_ios_sdk_doc/en/Upgrading.html).
 
 Objective-C 
 
@@ -293,9 +294,9 @@ When entering the device panel, provide an event to check the device firmware up
 
 ### Attention
 
-1. Make sure that the user is logged in before using any interface
+1. Make sure that the user is logged in before using any interface.
 2. This interface is only fit for camera device, which device.deviceModel.category is 'sp'.
-3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`
+3. Before using bizbundle，must  implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol`.
 4. After accessing this service pack, you must also access the `TuyaSmartCameraPanelBizBundle` service pack, because some related function codes (such as camera album panel codes, etc.) are included in this service pack.
 
 Objective-C 
