@@ -133,7 +133,8 @@ NSMicrophoneUsageDescription
 
 1. 使用任何接口之前，务必确认该设备在当前用户下。
 2. 此接口，只适用于摄像机设备调用，即 deviceModel.category 为 “sp” 类型的设备。
-3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`。
+4. 此业务包，与之前的 `TuyaSmartCameraPanelSDK` 互斥，二者不能共存，迁移之前，请查看 [迁移指南](https://tuyainc.github.io/tuyasmart_camera_panel_ios_sdk_doc/zh-hans/Upgrading.html)。
 
 Objective-C 
 
@@ -298,7 +299,7 @@ NSMicrophoneUsageDescription
 
 1. 使用任何接口之前，务必确认该设备在当前用户下。
 2. 此接口，只适用于摄像机设备调用，即 deviceModel.category 为 “sp” 类型的设备。
-3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`
+3. 调用业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`。
 4. 接入此业务包后，必须同时也接入 `TuyaSmartCameraPanelBizBundle` 业务包，因为有些相关功能代码（例如摄像机相册面板代码等）在该业务包中。
 
 Objective-C 
@@ -337,7 +338,7 @@ class TYActivatorTest: NSObject,TYSmartHomeDataProtocol{
     
 }
 ```
- 
+
 ### 注册 TYRNCameraProtocol 协议
 
 **注意**
