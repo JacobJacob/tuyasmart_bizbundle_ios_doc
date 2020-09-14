@@ -12,4 +12,7 @@ Tuya currently provides the following BizBundles, one or more of which can be us
 | TuyaSmartCameraPanelBizBundle | Provide camera native panel |
 | TuyaSmartCameraRNPanelBizBundle | Provide camera react-native panel |
 | TuyaSmartMessageBizBundle | Provide message center function |
+| TuyaSmartSceneBizBundle         | Provide smart scene setting panel |
+| TuyaSmartCloudServiceBizBundle  | Provide camera cloud storage service purchase function |
+| TuyaSmartHelpCenterBizBundle    | Provide App troubleshooting and feedback channels |
 
