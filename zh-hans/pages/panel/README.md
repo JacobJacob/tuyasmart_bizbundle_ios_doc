@@ -21,7 +21,7 @@ source 'https://cdn.cocoapods.org/'
 target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
-  # 添加设备控制业务包，需要指定固定版本号
+  # 添加设备控制业务包
   pod 'TuyaSmartPanelBizBundle', 'xxx'
   # 若需要扫地机功能，请依赖扫地机相关插件
   # pod 'TuyaRNApi/Sweeper'
@@ -354,3 +354,6 @@ self.ty_topBarBackgroundColor = <#Color#>;
 }
 ```
 
+**2. 依赖插件的时候，`pod update` 报错？**
+
+工程在使用 cocoapods 集成业务包时，由于 pod 的逻辑，Podfile 中没有指明每个 Pod 库的版本时，默认会拉取最新的正式版本号（x.y.z，其中 x、y、z 均为数字）。若需要依赖设备控制业务包的扩展功能时，即需要依赖相关插件，由于插件的版本号属于 pre-release，因此，需要在 Podfile 中指明设备控制业务包的所在基线的最新日期标明的版本号（[点击查看业务包版本号](../versions.md)）。

@@ -20,7 +20,7 @@ source 'https://cdn.cocoapods.org/'
 target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
-  # Add Device Control BizBundle, Version must be specified
+  # Add Device Control BizBundle
   pod 'TuyaSmartPanelBizBundle', 'xxx'
   # If you need the sweeper, please rely on the relevant plug-in of the sweeper
   # pod 'TuyaRNApi/Sweeper'
@@ -351,5 +351,6 @@ Case 2.
 }
 ```
 
+**2. When relying on plugins, `pod update` reports an error?**
 
-
+When the project uses cocoapods to integrate the business package, due to the logic of the pod, when the version of each Pod library is not specified in the Podfile, the latest official version number (x.y.z, where x, y, and z are all numbers) will be pulled by default. If you need to rely on the extended functions of the device control service package, you need to rely on the relevant plug-in. Since the version number of the plug-in is pre-release, you need to specify the version number marked with the latest date of the baseline of the device control service package in the Podfile ( [Click to view the business package version number](../versions.md)).
