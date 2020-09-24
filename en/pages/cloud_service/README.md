@@ -1,6 +1,6 @@
 # Cloud Service BizBundle
 
-Tuya smart cameras provide cloud storage video services, and cloud storage services can be activated through this bizBundle. After active cloud storage service, you can view and play cloud storage videos through [Tuya Smart Camera SDK](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/).
+Tuya smart cameras provide cloud storage video services, and cloud storage services can be activated through this bizBundle. After active cloud storage service, you can view and play cloud storage videos through [IPC SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Camera.html).
 
 ## Integrate
 

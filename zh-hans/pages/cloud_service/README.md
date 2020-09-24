@@ -1,6 +1,6 @@
 # 云存储服务业务包
 
-涂鸦智能摄像机提供云存储视频服务，通过此业务包可以开通云存储服务。开同云存储服务后，可以通过 [Tuya Smart Camera SDK](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/) 查看和播放云存储视频。
+涂鸦智能摄像机提供云存储视频服务，通过此业务包可以开通云存储服务。开同云存储服务后，可以通过 [IPC SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Camera.html) 查看和播放云存储视频。
 
 ## 接入组件
 
