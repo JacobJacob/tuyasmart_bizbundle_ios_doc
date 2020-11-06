@@ -295,6 +295,10 @@ id<TYPanelProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:
         NSLog(@"Load error: %@", error);
     }
 }];
+// Method 3: Get the panel view controller and jump by itself
+[impl getPanelViewControllerWithDeviceModel:device groupModel:group initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+
+}];
 ```
 
 Swift
@@ -310,6 +314,13 @@ impl?.gotoPanelViewController(withDevice: deviceModel!, group: nil, initialProps
 // Method 2: Jump using Present
 impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
     if let e = error {
+        print("\(e)")
+    }
+})
+// Method 3: Get the panel view controller and jump by itself
+let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
+impl?.getPanelViewController(with: deviceModel!, groupModel: nil, initialProps: nil, contextProps: nil, completionHandler: { (panelViewController, error) in
+		if let e = error {
         print("\(e)")
     }
 })

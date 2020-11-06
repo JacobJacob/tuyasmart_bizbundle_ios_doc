@@ -298,6 +298,10 @@ id<TYPanelProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:
         NSLog(@"Load error: %@", error);
     }
 }];
+// 方式三: 获取面板视图控制器，自行跳转
+[impl getPanelViewControllerWithDeviceModel:device groupModel:group initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+
+}];
 ```
 
 Swift
@@ -313,6 +317,13 @@ impl?.gotoPanelViewController(withDevice: deviceModel!, group: nil, initialProps
 // 方式二: 使用 Present 方式跳转
 impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
     if let e = error {
+        print("\(e)")
+    }
+})
+// 方式三: 获取面板视图控制器，自行跳转
+let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
+impl?.getPanelViewController(with: deviceModel!, groupModel: nil, initialProps: nil, contextProps: nil, completionHandler: { (panelViewController, error) in
+		if let e = error {
         print("\(e)")
     }
 })
