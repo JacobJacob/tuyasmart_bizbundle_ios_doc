@@ -1,6 +1,6 @@
 deploy:
   tags:
-    - gitbook
+    - bizBundle
   only:
     - develop
   script:
