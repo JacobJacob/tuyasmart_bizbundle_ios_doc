@@ -1,6 +1,6 @@
 deploy:
   tags:
-    - bizBundle
+    - bizbundle
   only:
     - develop
   script:
