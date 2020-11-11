@@ -22,7 +22,7 @@ target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
   # 添加设备控制业务包
-  pod 'TuyaSmartPanelBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartPanelBizBundle', '3.20.0.1.4'
   # 若需要扫地机功能，请依赖扫地机相关插件
   # pod 'TuyaRNApi/Sweeper', '5.29.62-Bizbundle.3.20.0-1'
 end

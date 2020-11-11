@@ -21,7 +21,7 @@ target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
   # Add Device Control BizBundle
-  pod 'TuyaSmartPanelBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartPanelBizBundle', '3.20.0.1.4'
   # If you need the sweeper, please rely on the relevant plug-in of the sweeper
   # pod 'TuyaRNApi/Sweeper', '5.29.62-Bizbundle.3.20.0-1'
 end
