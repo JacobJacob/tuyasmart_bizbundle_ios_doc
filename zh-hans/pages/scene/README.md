@@ -21,7 +21,7 @@ source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
   # 添加场景业务包
-  pod 'TuyaSmartSceneBizBundle'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
 end
 ```
 **注意**

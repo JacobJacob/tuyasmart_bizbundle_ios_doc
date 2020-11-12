@@ -18,7 +18,7 @@ source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  pod 'TuyaSmartSceneBizBundle'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
 end
 ```
 **Note**
