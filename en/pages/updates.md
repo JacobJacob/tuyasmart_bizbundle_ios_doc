@@ -2,14 +2,14 @@
 
 ## 3.22.0
 
-|      Biz Bundle      | Changelog |
-| :------------------: | :-------: |
-|       H5 Mall        |           |
-| Device Configuration |           |
-|    Device Control    |           |
-|         IPC          |           |
-|        Scene         |           |
-|    Cloud Service     |           |
-|         FAQ          |           |
-|    Message Center    |           |
+|      Biz Bundle      |                   Changelog                    |
+| :------------------: | :--------------------------------------------: |
+|       H5 Mall        |                                                |
+| Device Configuration | Optimize Bluetooth and QR code pairing process |
+|    Device Control    |                                                |
+|         IPC          |                                                |
+|        Scene         |                                                |
+|    Cloud Service     |                                                |
+|         FAQ          |                                                |
+|    Message Center    |                                                |
 
