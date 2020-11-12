@@ -18,7 +18,7 @@ target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
   # Add H5 Mall BizBundle
-  pod 'TuyaSmartMallBizBundle'
+  pod 'TuyaSmartMallBizBundle', '~> 3.20.0'
 end
 ```
 
