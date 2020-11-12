@@ -14,7 +14,7 @@ source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
   # Add Faq BizBundle 
-  pod 'TuyaSmartHelpCenterBizBundle'
+  pod 'TuyaSmartHelpCenterBizBundle', '~> 3.17.0'
 end
 ```
 
@@ -22,10 +22,10 @@ end
 
 ### Service Provided By BizBundle
 
-The FAQ BizBundle implements the  `TYHelpCenteProtocol` protocol to provide services. View the `TYHelpCenteProtocol.h` file in the `TYModuleServices` as follows:
+The FAQ BizBundle implements the  `TYHelpCenterProtocol` protocol to provide services. View the `TYHelpCenterProtocol.h` file in the `TYModuleServices` as follows:
 
 ```objective-c
-@protocol TYHelpCenteProtocol <NSObject>
+@protocol TYHelpCenterProtocol <NSObject>
 
 @optional
 
@@ -56,9 +56,9 @@ Objective-C
 
 ```objective-c
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
-#import <TYModuleServices/TYHelpCenteProtocol.h>
+#import <TYModuleServices/TYHelpCenterProtocol.h>
 
-id<TYHelpCenteProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYHelpCenteProtocol)];
+id<TYHelpCenterProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYHelpCenterProtocol)];
 
 [impl gotoHelpCenter];
 
@@ -69,7 +69,7 @@ id<TYHelpCenteProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProto
 Swift
 
 ```swift
-let impl = TuyaSmartBizCore.sharedInstance().service(of: TYHelpCenteProtocol.self) as? TYHelpCenteProtocol
+let impl = TuyaSmartBizCore.sharedInstance().service(of: TYHelpCenterProtocol.self) as? TYHelpCenterProtocol
 
 impl?.gotoHelpCenter()
 
