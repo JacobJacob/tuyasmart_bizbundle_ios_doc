@@ -1,5 +1,6 @@
 - [TuyaSmart iOS IPC biz Bundle](#native)
 - [TuyaSmart iOS IPC ReactNative biz Bundle](#rn)
+- [TuyaSmart iOS IPC Setting biz Bundle](#cameraSetiing)
 
 <span id="native"></span>
 # TuyaSmart iOS IPC biz Bundle
@@ -371,4 +372,75 @@ Swift
 ```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYRNCameraProtocol.self) as? TYRNCameraProtocol
 impl?.cameraRNPanelViewControllerWithDeviceId(withDeviceId: deviceModel.devId!) 
+```
+
+<span id="cameraSetiing"></span>
+# Camera Setting Panel biz Bundle
+
+## Functional overview
+
+The Tuya Smart iOS IPC Setting Business Kit (TuyaSmartCameraSettingBizBundle) is based on the [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk _doc/>) developed a series of panels related to common camera settings, etc. The main features include the following.
+
+- Device details, basic settings, memory card settings, value-added services, other, reboot, etc.
+
+## Integrate
+
+Add the following code to the ``Podfile`` file.
+
+```ruby
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
+source 'https://cdn.cocoapods.org/'
+
+target 'your_target_name' do
+  # add SmartCameraSettingBizBundle
+  pod 'TuyaSmartCameraSettingBizBundle'
+end
+```
+
+Then execute the command ``pod update`` in the project root directory to integrate third-party libraries.
+
+To use CocoaPods, please refer to: [CocoaPods Guides](https://guides.cocoapods.org/).
+
+## Service Protocol
+
+### Provide Service
+
+The camera setting biz bundle implements the `TYCameraSettingProtocol` protocol to provide services, view the `TYCameraSettingProtocol.h` protocol file in the `TYModuleServices` component as follows.
+
+```objc
+#import <UIKit/UIKit.h>
+
+@protocol TYCameraSettingProtocol <NSObject>
+
+/**
+ Get Camera Settings Panel
+ @param params camera settings page parameters (e.g. set the home page to @{@"devId" : device devID, @"cameraSettingPanelIdentifier" : @"cameraSettingIndexIdentifier"}).
+ */
+- (UIViewController *)settingViewControllerWithDeviceParams:(NSDictionary *)params;
+
+@end
+```
+
+### Attention
+
+1. Before using any interface, make sure that the device is under the current user. 
+2. This only applies to camera device calls, i.e. deviceModel.category is of type "sp". 
+3. The camera settings are available by default after this package is connected. If you want to implement the camera setting panel by yourself, just register the following protocol to implement the proxy method.
+
+### Register TYCameraSettingProtocol protocol.
+
+**Note**
+
+The protocol method of `TYCameraSettingProtocol` only needs to be registered and implemented by yourself if you need to implement a custom camera setup panel (to return to the custom camera setup panel), the default `TuyaSmartCameraSettingBizBundle` package has a corresponding implementation inside. Logic.
+
+Objc
+
+```objc
+[[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYCameraSettingProtocol) withInstance:self];
+```
+
+Swift
+
+```swift
+TuyaSmartBizCore.sharedInstance().registerService(TYCameraSettingProtocol.self, withInstance: self)
 ```

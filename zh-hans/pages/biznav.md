@@ -15,4 +15,5 @@
 | TuyaSmartSceneBizBundle         | 提供智能场景设置面板                 |
 | TuyaSmartCloudServiceBizBundle  | 提供摄像机云存储服务购买功能         |
 | TuyaSmartHelpCenterBizBundle    | 提供 App 问题排查与反馈渠道          |
+| TuyaSmartCameraSettingBizBundle | 提供摄像机设备常用的设置面板         |
 
