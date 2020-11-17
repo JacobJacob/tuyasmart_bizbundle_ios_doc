@@ -15,4 +15,5 @@ Tuya currently provides the following BizBundles, one or more of which can be us
 | TuyaSmartSceneBizBundle         | Provide smart scene setting panel |
 | TuyaSmartCloudServiceBizBundle  | Provide camera cloud storage service purchase function |
 | TuyaSmartHelpCenterBizBundle    | Provide App troubleshooting and feedback channels |
+| TuyaSmartCameraSettingBizBundle | Provide camera setting panel |
 

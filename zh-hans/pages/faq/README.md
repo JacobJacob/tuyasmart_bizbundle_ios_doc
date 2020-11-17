@@ -14,7 +14,7 @@ source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
   # 添加常见问题与反馈业务包
-  pod 'TuyaSmartHelpCenterBizBundle'
+  pod 'TuyaSmartHelpCenterBizBundle', '~> 3.17.0'
 end
 ```
 
@@ -22,11 +22,11 @@ end
 
 ### 提供服务
 
-常见问题与反馈业务包实现 `TYHelpCenteProtocol` 协议以提供服务，在 `TYModuleServices` 组件中查看 `TYHelpCenteProtocol.h` 协议文件内容为：
+常见问题与反馈业务包实现 `TYHelpCenterProtocol` 协议以提供服务，在 `TYModuleServices` 组件中查看 `TYHelpCenterProtocol.h` 协议文件内容为：
 
 ```objective-c
 
-@protocol TYHelpCenteProtocol <NSObject>
+@protocol TYHelpCenterProtocol <NSObject>
 
 @optional
 
@@ -56,9 +56,9 @@ Objective-C 示例
 
 ```objective-c
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
-#import <TYModuleServices/TYHelpCenteProtocol.h>
+#import <TYModuleServices/TYHelpCenterProtocol.h>
 
-id<TYHelpCenteProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYHelpCenteProtocol)];
+id<TYHelpCenterProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYHelpCenterProtocol)];
 
 [impl gotoHelpCenter];
 
@@ -69,7 +69,7 @@ id<TYHelpCenteProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProto
 Swift 示例
 
 ```swift
-let impl = TuyaSmartBizCore.sharedInstance().service(of: TYHelpCenteProtocol.self) as? TYHelpCenteProtocol
+let impl = TuyaSmartBizCore.sharedInstance().service(of: TYHelpCenterProtocol.self) as? TYHelpCenterProtocol
 
 impl?.gotoHelpCenter()
 

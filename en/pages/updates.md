@@ -1,18 +1,15 @@
 # Changelog
 
-## 2020.08.26
+## 3.22.0
 
-- [Feature]：Scene BizBundle
-- [Feature]：Cloud Service BizBundle
-- [Feature]：FAQ BizBundle
-- [Feature]：Message Center BizBundle
+|      Biz Bundle      |                   Changelog                    |
+| :------------------: | :--------------------------------------------: |
+|       H5 Mall        |                                                |
+| Device Configuration | Optimize Bluetooth and QR code pairing process |
+|    Device Control    |                                                |
+|         IPC          |                                                |
+|        Scene         |                                                |
+|    Cloud Service     |                                                |
+|         FAQ          |                                                |
+|    Message Center    |                                                |
 
-## 2020.06.19
-
-- [Feature]： Device Control BizBundle
-- [Feature]： IPC BizBundle
-- [Feature]： H5 Mall BizBundle
-
-## 2020.06.01 
-
-- [Feature]： Device Configuration BizBundle

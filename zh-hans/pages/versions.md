@@ -1,28 +1,17 @@
 # 版本记录
 
-## 基线版本 3.17.0
+## 基线版本 3.20.0
 
-### 2020-09-14
+### 2020-11-06
 
-- TuyaSmartActivatorBizBundle (3.17.0.2.15)
-- TuyaSmartCameraPanelBizBundle (3.17.6.0.9)
-- TuyaSmartCameraRNPanelBizBundle (3.17.6.0.9)
-- TuyaSmartCloudServiceBizBundle (3.17.0.8)
-- TuyaSmartHelpCenterBizBundle (3.17.0.2.5)
-- TuyaSmartMallBizBundle (3.17.0.7.4)
-- TuyaSmartMessageBizBundle (3.17.0.1.3)
-- TuyaSmartPanelBizBundle (3.17.0.2.2)
-- TuyaSmartSceneBizBundle (3.17.0.1.7)
-
-### 2020-08-26
-
-- TuyaSmartActivatorBizBundle (3.17.0.2.14)
-- TuyaSmartCameraPanelBizBundle (3.17.6.0.8)
-- TuyaSmartCameraRNPanelBizBundle (3.17.6.0.8)
-- TuyaSmartCloudServiceBizBundle (3.17.0.7)
-- TuyaSmartHelpCenterBizBundle (3.17.0.2.4)
-- TuyaSmartMallBizBundle (3.17.0.7.3)
-- TuyaSmartMessageBizBundle (3.17.0.1.2)
-- TuyaSmartPanelBizBundle (3.17.0.2.1)
-- TuyaSmartSceneBizBundle (3.17.0.1.6)
+- TuyaSmartActivatorBizBundle (3.20.0.2)
+- TuyaSmartCameraPanelBizBundle (3.20.0.2)
+- TuyaSmartCameraRNPanelBizBundle (3.20.0.2)
+- TuyaSmartCameraSettingBizBundle (3.20.0.1)
+- TuyaSmartCloudServiceBizBundle (3.20.0.1)
+- TuyaSmartHelpCenterBizBundle (3.20.0.5)
+- TuyaSmartMallBizBundle (3.20.0.5)
+- TuyaSmartMessageBizBundle (3.20.0.1)
+- TuyaSmartPanelBizBundle (3.20.0.1.4)
+- TuyaSmartSceneBizBundle (3.20.0.1)
 

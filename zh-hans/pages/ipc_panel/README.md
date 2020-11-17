@@ -1,5 +1,6 @@
 - [摄像机 Native 面板业务包](#native)
 - [摄像机 RN 面板业务包](#rn)
+- [摄像机设置面板业务包](#cameraSetting)
 
 <span id="native"></span>
 # 摄像机 Native 面板业务包
@@ -374,4 +375,73 @@ Swift
 ```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYRNCameraProtocol.self) as? TYRNCameraProtocol
 impl?.cameraRNPanelViewControllerWithDeviceId(withDeviceId: deviceModel.devId!) 
+```
+
+<span id="cameraSetting"></span>
+# 摄像机设置面板业务包
+
+## 功能概述
+
+涂鸦智能 iOS IPC  设置业务包 （TuyaSmartCameraSettingBizBundle） 是基于 [Tuya Smart Camera SDK](<https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/>) 开发的一系列摄像机常用设置等相关的面板。主要包括以下功能：
+
+- 设备详情，基础设置，存储卡设置，增值服务，其它，重启等。
+
+## 接入组件
+
+在  ```Podfile``` 文件中加入以下代码：
+
+```ruby
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
+source 'https://cdn.cocoapods.org/'
+
+target 'your_target_name' do
+  # 添加摄像机设置面板业务包
+  pod 'TuyaSmartCameraSettingBizBundle'
+end
+```
+
+然后在项目根目录下执行 ```pod update``` 命令，集成第三方库。
+
+CocoaPods 的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
+
+## 服务协议
+
+摄像机设置业务包实现 `TYCameraSettingProtocol` 协议以提供服务，在 `TYModuleServices` 组件中查看 `TYCameraSettingProtocol.h` 协议文件内容为：
+
+```objc
+#import <UIKit/UIKit.h>
+
+@protocol TYCameraSettingProtocol <NSObject>
+
+/**
+ 获取摄像头设置面板
+ @param params 摄像头设置页面相关的参数（例如：设置首页为 @{@"devId" : 设备devID, @"cameraSettingPanelIdentifier" : @"cameraSettingIndexIdentifier"} ）
+ */
+- (UIViewController *)settingViewControllerWithDeviceParams:(NSDictionary *)params;
+
+@end
+```
+
+### 注意事项
+
+1. 使用任何接口之前，务必确认该设备在当前用户下。
+2. 只适用于摄像机设备调用，即 deviceModel.category 为 “sp” 类型的设备。
+3. 接入此业务包后，默认就可以实现摄像机设置相关功能。如果用户想自行实现摄像头设置面板，注册下面对应协议，实现代理方法即可。
+
+### 注册 TYCameraSettingProtocol 协议
+
+**注意**
+
+`TYCameraSettingProtocol` 的协议方法，只有在需要实现自定义摄像机设置面板（返回自定义的摄像机设置面板）的情况下，才需要自己去注册和实现，默认 `TuyaSmartCameraSettingBizBundle` 业务包内部会有对应的实现逻辑。
+
+Objc
+
+```objc
+[[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYCameraSettingProtocol) withInstance:self];
+```
+
+Swift
+
+```swift
+TuyaSmartBizCore.sharedInstance().registerService(TYCameraSettingProtocol.self, withInstance: self)
 ```
