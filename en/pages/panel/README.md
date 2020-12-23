@@ -78,34 +78,30 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cleanPanelCache;
 
 /**
- * jump to device control panel，by push
+ * Get device panel view controller
  *
- * @param device        DeviceModel
- * @param group         GroupModel
+ * @param deviceModel A device model of TuyaSmartSDK
  * @param initialProps  Custom initialization parameters will be set into the initialProps of the RN application with'extraInfo' as the key
- * @param contextProps  Custom panel context will be set into Panel Context with'extraInfo' as key
- * @param completion Result callback
+ * @param contextProps  The custom panel context will be set into the Panel Context with'extraInfo' as the key
+ * @param completionHandler Callback the panel view controller
  */
-- (void)gotoPanelViewControllerWithDevice:(TuyaSmartDeviceModel *)device
-                                    group:(nullable TuyaSmartGroupModel *)group
-                             initialProps:(nullable NSDictionary *)initialProps
-                             contextProps:(nullable NSDictionary *)contextProps
-                               completion:(void(^ _Nullable)(NSError * _Nullable error))completion;
+- (void)getPanelViewControllerWithDeviceModel:(TuyaSmartDeviceModel *)deviceModel
+                                 initialProps:(nullable NSDictionary *)initialProps
+                                 contextProps:(nullable NSDictionary *)contextProps
+                            completionHandler:(void (^ _Nullable)(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error))completionHandler;
 
 /**
- * jump to device control panel，by present
+ * Get group panel view controller
  *
- * @param device        DeviceModel
- * @param group         GroupModel
+ * @param groupModel A group model of TuyaSmartSDK
  * @param initialProps  Custom initialization parameters will be set into the initialProps of the RN application with'extraInfo' as the key
- * @param contextProps  Custom panel context will be set into Panel Context with'extraInfo' as key
- * @param completion Result callback
+ * @param contextProps  The custom panel context will be set into the Panel Context with'extraInfo' as the key
+ * @param completionHandler Callback the panel view controller
  */
-- (void)presentPanelViewControllerWithDevice:(TuyaSmartDeviceModel *)device
-                                       group:(nullable TuyaSmartGroupModel *)group
+- (void)getPanelViewControllerWithGroupModel:(TuyaSmartGroupModel *)groupModel
                                 initialProps:(nullable NSDictionary *)initialProps
                                 contextProps:(nullable NSDictionary *)contextProps
-                                  completion:(void (^ _Nullable)(NSError * _Nullable error))completion;
+                           completionHandler:(void (^ _Nullable)(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error))completionHandler;
 
 // RN Version For BizBundle
 - (NSString *_Nonnull)rnVersionForApp;
@@ -283,45 +279,25 @@ Objective-C
 
 ```objc
 id<TYPanelProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYPanelProtocol)];
-// Method 1: Jump by default Push method
-[impl gotoPanelViewControllerWithDevice:deviceModel group:nil initialProps:nil contextProps:nil completion:^(NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"Load error: %@", error);
-    }
-}];
-// Method 2: Jump using Present
-[impl presentPanelViewControllerWithDevice:deviceModel group:nil initialProps:nil contextProps:nil completion:^(NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"Load error: %@", error);
-    }
-}];
-// Method 3: Get the panel view controller and jump by itself
-[impl getPanelViewControllerWithDeviceModel:device groupModel:group initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
-
-}];
+// Get the panel view controller and jump by itself
+if (deviceModel) {
+    [impl getPanelViewControllerWithDeviceModel:deviceModel initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+    }];
+} else if (groupModel) {
+    [impl getPanelViewControllerWithGroupModel:groupModel initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+    }];
+}
 ```
 
 Swift
 
 ```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
-// Method 1: Jump by default Push method
-impl?.gotoPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
-    if let e = error {
-        print("\(e)")
-    }
+// Get the panel view controller and jump by itself
+impl?.getPanelViewController(with: deviceModel, initialProps: nil, contextProps: nil, completionHandler: { (vc, err) in
+
 })
-// Method 2: Jump using Present
-impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
-    if let e = error {
-        print("\(e)")
-    }
-})
-// Method 3: Get the panel view controller and jump by itself
-let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
-impl?.getPanelViewController(with: deviceModel!, groupModel: nil, initialProps: nil, contextProps: nil, completionHandler: { (panelViewController, error) in
-		if let e = error {
-        print("\(e)")
-    }
+impl?.getPanelViewController(with: groupModel, initialProps: nil, contextProps: nil, completionHandler: { (vc, err) in
+
 })
 ```
