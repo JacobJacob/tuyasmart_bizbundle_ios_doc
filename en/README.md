@@ -13,6 +13,7 @@ Tuya iOS BizBundle currently offered includes:
 - Cloud Service
 - FAQ
 - Message Center
+- OTA
 
 ## Architecture
 
