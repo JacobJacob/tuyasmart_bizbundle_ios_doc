@@ -280,7 +280,7 @@ Timing of notification:
 1. Added scene successfully
 2. Edit scene successfully
 
-**kNotificationSmartSceneSaved**
+**kNotificationSmartSceneRecomDeleted**
 
 Timing of notification:
 

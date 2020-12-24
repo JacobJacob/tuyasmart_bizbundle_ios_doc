@@ -281,7 +281,7 @@ func getSceneList() {
 1. 添加场景成功
 2. 编辑场景成功
 
-**kNotificationSmartSceneSaved**
+**kNotificationSmartSceneRecomDeleted**
 
 通知发送时机：
 
