@@ -11,6 +11,7 @@
   * [常见问题与反馈](./pages/faq/README.md)
   * [消息中心](./pages/message/README.md)
   * [家庭](./pages/family/README.md)
+  * [OTA 升级](./pages/ota/README.md)
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
 * [版本记录](./pages/versions.md)
