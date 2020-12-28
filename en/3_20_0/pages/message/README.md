@@ -139,3 +139,4 @@ Swfit
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYMessageCenterProtocol.self) as? TYMessageCenterProtocol
 impl?.gotoMessageCenterViewController(animated: true)
 ```
+Remarks: Due to the open capability of the bizBundle and the dependence of functional components, the click response of some alarm information links in the message center is temporarily not supported.
