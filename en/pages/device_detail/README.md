@@ -208,10 +208,10 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 ####Optional function implementation
 
 #### 1. OTA function
- #####**Access required**: [Access OTA Service Package](https://registry.code.tuya-inc.top/TuyaIOSBusinessSDK/tuyasmartbizbundledoc/tree/develop/zh-hans/pages/ota "Access OTA Service Package")
+ #####**Access required**: [Access OTA Service Package](../ota/README.md "Access OTA Service Package")
 
 #### 2. FAQ and feedback function
- #####**Access required**: [Access Help Center Business Package](https://registry.code.tuya-inc.top/TuyaIOSBusinessSDK/tuyasmartbizbundledoc/tree/develop/zh-hans/pages/faq "Access Help Center Service Package")
+ #####**Access required**: [Access Help Center Business Package](../faq/README.md "Access Help Center Service Package")
 
 
 

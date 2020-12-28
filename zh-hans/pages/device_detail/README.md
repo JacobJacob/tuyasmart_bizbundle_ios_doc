@@ -154,10 +154,10 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 ####可选功能实现
 
 #### 1.  OTA功能
- #####**需要接入**：[接入OTA业务包](https://registry.code.tuya-inc.top/TuyaIOSBusinessSDK/tuyasmartbizbundledoc/tree/develop/zh-hans/pages/ota "接入OTA业务包")
+ #####**需要接入**：[接入OTA业务包](../ota/README.md  "接入OTA业务包")
 
 #### 2.  常见问题与反馈功能
- #####**需要接入**：[接入帮助中心业务包](https://registry.code.tuya-inc.top/TuyaIOSBusinessSDK/tuyasmartbizbundledoc/tree/develop/zh-hans/pages/faq "接入帮助中心业务包")
+ #####**需要接入**：[接入帮助中心业务包](../faq/README.md  "接入帮助中心业务包")
 
 
 
