@@ -12,4 +12,5 @@
 |    Cloud Service     |                                                |
 |         FAQ          |                                                |
 |    Message Center    |                                                |
+|         OTA          |               Add OTA bizBundle                |
 
