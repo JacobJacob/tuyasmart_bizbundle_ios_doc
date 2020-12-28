@@ -116,7 +116,7 @@ NSLocationWhenInUseUsageDescription
 
 3. swift需要在桥接文件内引用业务包头文件。
 
-   ```
+   ```objc
    #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
    #import <TYModuleServices/TYModuleServices.h>
    #import <TuyaSmartSceneKit/TuyaSmartSceneModel.h>
@@ -281,7 +281,7 @@ func getSceneList() {
 1. 添加场景成功
 2. 编辑场景成功
 
-**kNotificationSmartSceneSaved**
+**kNotificationSmartSceneRecomDeleted**
 
 通知发送时机：
 

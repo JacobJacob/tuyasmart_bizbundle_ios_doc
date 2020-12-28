@@ -10,6 +10,7 @@
   * [Cloud Service](./pages/cloud_service/README.md)
   * [FAQ](./pages/faq/README.md)
   * [Message Center](./pages/message/README.md)
+  * [House Management](./pages/family/README.md)
   * [OTA](./pages/ota/README.md)
 * [FAQ](./pages/faq.md)
 * [Changelog](./pages/updates.md)
