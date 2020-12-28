@@ -1,9 +1,7 @@
 # OTA BizBundle
 
 ## 1.1 Features
-Device OTA refers to the process of downloading and updating the firmware of the device through the network. Support OTA upgrade for ordinary devices and Bluetooth devices.
-
-Bluetooth devices OTA upgrade requires app download OTA upgrade package, complete data transfer via Bluetooth protocol, and trigger the firmware upgrade of the Bluetooth device.
+Device OTA refers to the process of downloading and updating the firmware of the device through the network. The OTA biz bundle can help you quickly integrate the device firmware upgrade capabilities.
 
 
 ## 1.2 add ota bizbundle
