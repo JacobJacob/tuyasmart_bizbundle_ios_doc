@@ -15,6 +15,7 @@ Tuya iOS BizBundle currently offered includes:
 - Message Center
 - House Management
 - OTA
+- Device Detail
 
 ## Architecture
 
