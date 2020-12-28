@@ -98,41 +98,58 @@ value: the following array
 ```
 
 
-### 4. Fúwù xiéyì
+4. Customize device details
+Note that the order of the items in the deviceDetail array affects the display order of the items on the device detail page. If the item is removed, the device details page sub-function will also be removed accordingly.
 
-#### yīlài fúwù (xūyào shíxiàn)
+
+deviceDetail type | Function point
+---|---
+header | View and modify the device icon, name, location
+device_info | Device Information
+net_setting | Device backup network
+off_line_warn | Device offline reminder
+section_other | Section header, no actual function
+help_and_feedback | FAQ and feedback, need to integrate FAQ and feedback business package
+check_firmware_update | Check firmware upgrade, need to integrate firmware upgrade service package
+empty | empty view, no actual function
+footer | remove device
+
+
+### 4. Service Agreement
+
+#### Dependent service (need to be implemented)
 #####1.TYSmartHomeDataProtocol
 
 ```
 /**
- yào shǐyòng gāi API huòqǔ dāngqián jiātíng, qǐng wùbì zài gēngxīn dāngqián jiātíng id de shíhòu shǐyòng gāi xiéyì de’updateCurrentHomeId:‘Api.
- Huòqǔ dāngqián de jiātíng, dāngqián méiyǒu jiātíng de shíhòu, fǎnhuí nil.
+ To use this API to get the current family, be sure to use the protocol’s ‘updateCurrentHomeId:’ Api when updating the current family id.
+ Get the current family, if there is no family, return nil.
  
- @Return TuyaSmartHome
+ @return TuyaSmartHome
  */
-- (TuyaSmartHome*)getCurrentHome;
+-(TuyaSmartHome *)getCurrentHome;
 ```
 
-Objective-C shìlì
+Objective-C example
 
 ```objective-c
-#import <TuyaSmartBizCore/TuyaSmartBizCore.H>
-#import <TYModuleServices/TYSmartHomeDataProtocol.H>
+#import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+#import <TYModuleServices/TYSmartHomeDataProtocol.h>
 
 
-- (void)initCurrentHome {
-    // zhùcè yào shíxiàn de xiéyì
-    [[TuyaSmartBizCore sharedInstance] registerService:@Protocol(TYSmartHomeDataProtocol) withInstance:Self];
+-(void)initCurrentHome {
+    // Register the protocol to be implemented
+    [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
 }
 
-// shíxiàn duìyìng de xiéyì fāngfǎ
-- (TuyaSmartHome*)getCurrentHome {
-    TuyaSmartHome*home = [TuyaSmartHome homeWithHomeId:@"Dāngqián jiātíng id"];
+// Implement the corresponding protocol method
+-(TuyaSmartHome *)getCurrentHome {
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:@"current family id"];
     return home;
 }
 ```
 
-Swfit shìlì
+Swfit example
 
 ```swift
 import TuyaSmartDeviceKit
@@ -141,17 +158,17 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 
     
     func test() {
-        TuyaSmartBizCore.SharedInstance().RegisterService(TYSmartHomeDataProtocol.Self, withInstance: Self)
+        TuyaSmartBizCore.sharedInstance().registerService(TYSmartHomeDataProtocol.self, withInstance: self)
     }
     
     func getCurrentHome() -> TuyaSmartHome! {
-        Let home = TuyaSmartHome.Init(homeId: 111)
-        Return home
+        let home = TuyaSmartHome.init(homeId: 111)
+        return home
     }
     
 }
 ```
-### 4. Service Agreement
+### 4. Service Protocol
 
 #### Dependent service (need to be implemented)
 #####1.TYSmartHomeDataProtocol

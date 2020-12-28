@@ -94,6 +94,22 @@ value: 下面的数组
   }
 ```
 
+4.自定义设备详情
+注意deviceDetail数组item的顺序影响设备详情页item展示的顺序。如过移除item，则相应也会移除设备详情页子功能。
+
+
+deviceDetail type | 功能点
+---|---
+header | 查看修改设备图标，名称，位置
+device_info | 设备信息
+net_setting | 设备备用网络
+off_line_warn | 设备离线提醒
+section_other | 分区头，无实际功能
+help_and_feedback | 常见问题与反馈，需要集成常见问题与反馈业务包
+check_firmware_update | 检查固件升级，需要集成固件升级业务包
+empty | 空view，无实际功能
+footer | 移除设备
+
 ------------
 
 
