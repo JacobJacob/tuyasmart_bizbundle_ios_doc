@@ -1,16 +1,8 @@
 # House Management
 
-## Introduction
+## Features
 
-House Management provides the abilities to manage houses, including:
-* create house
-* join a house
-* house setting
-
-The abilities of house setting including:
-* set house name
-* manage room
-* manage family relationship
+The family biz bundle mainly includes business such as family, member, room, etc., which are the basic conditions for the management of the devices after devices are activated. The device can set the room where the device is located in the family after the device configuration, meanwhile, the family members who have different authority under the family correspond to different operation authority, and the family is also the largest unit of scene intelligence execution.
 
 ## Integrate
 

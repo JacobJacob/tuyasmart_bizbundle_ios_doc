@@ -128,7 +128,7 @@ Objective-C 示例
 
 
 - (void)gotoDeviceConfig {
-    id<TYActivatorProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYMessageCenterProtocol)];
+    id<TYMessageCenterProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYMessageCenterProtocol)];
     [impl gotoMessageCenterViewControllerWithAnimated:YES];
 }
 ```
@@ -139,3 +139,4 @@ Swfit 示例
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYMessageCenterProtocol.self) as? TYMessageCenterProtocol
 impl?.gotoMessageCenterViewController(animated: true)
 ```
+备注：因业务包开放能力及功能组件依赖原因，消息中心部分告警信息链接点击响应暂时不支持。
