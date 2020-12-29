@@ -7,7 +7,7 @@ Bluetooth devices OTA upgrade requires app download OTA upgrade package, complet
 
 
 ## Add OTA BizBundle
-add ota bizbundle in `Podfile` , then run `pod update`
+Add OTA bizbundle in `Podfile` , then run `pod update`
 
 ```ruby
 source "https://github.com/TuyaInc/TuyaPublicSpecs.git"

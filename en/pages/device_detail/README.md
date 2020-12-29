@@ -8,14 +8,11 @@
 - Offline reminder function
 - Remove device
 - Frequently asked questions and feedback (need access to help Center business package)
-
 - Check firmware upgrade (OTA business package is required)
-
-------------
 
 ## Biz Bundle integration
 
-### pod integration
+### Pod integration
 Add the business package component to the project's 'Podfile' file and execute the 'pod update' command
 
 ```ruby
