@@ -1,6 +1,6 @@
 # OTA BizBundle
 
-## 1.1 Features
+## Features
 Device OTA refers to the process of downloading and updating the firmware of the device through the network. The OTA biz bundle can help you quickly integrate the device firmware upgrade capabilities.
 
 ## Add OTA BizBundle
