@@ -12,6 +12,7 @@
   * [消息中心](./pages/message/README.md)
   * [家庭](./pages/family/README.md)
   * [OTA](./pages/ota/README.md)
+  * [设备详情](./pages/device_detail/README.md)
 * [FAQ](./pages/faq.md)
 * [更新日志](./pages/updates.md)
 * [版本记录](./pages/versions.md)
