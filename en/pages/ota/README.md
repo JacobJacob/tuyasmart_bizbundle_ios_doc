@@ -3,9 +3,8 @@
 ## 1.1 Features
 Device OTA refers to the process of downloading and updating the firmware of the device through the network. The OTA biz bundle can help you quickly integrate the device firmware upgrade capabilities.
 
-
-## 1.2 add ota bizbundle
-add ota bizbundle in `Podfile` , then run `pod update`
+## Add OTA BizBundle
+Add OTA bizbundle in `Podfile` , then run `pod update`
 
 ```ruby
 source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
@@ -26,7 +25,7 @@ NSBluetoothAlwaysUsageDescription
 NSBluetoothPeripheralUsageDescription
 ```
 
-## 1.3 Service Protocol
+## Service Protocol
 OTA bizbundle implements `TYOTAGeneralProtocol` protocol to provide functionality, the content of TYOTAGeneralProtocol.h in TYModuleServices is as following:
 
 ```objc
@@ -87,12 +86,12 @@ when need to custom the mandatory upgrade cancel behaviour (default is popToRoot
 @end
 ```
 
-## 1.4 Guidance
+## Guidance
 
-### 1.4.1 Attention
+### Attention
 Make sure that the user is logged in before using any interface
 
-### 1.4.2 Check upgrade, enter OTA viewController
+### Check upgrade, enter OTA viewController
 
 Objective-C
 
@@ -125,7 +124,7 @@ func test(_ deviceModel: TuyaSmartDeviceModel) {
 }
 ```
 
-### 1.4.2 Custom the mandatory upgrade cancel behaviour
+### Custom the mandatory upgrade cancel behaviour
 when mandatory upgrad is canceled, default is `[self.navigationController popToRootViewControllerAnimated:YES]`，
 
 if you need custom mandatory upgrade cancel behaviour, register and implements `TYOTAGeneralExternalProtocol`.

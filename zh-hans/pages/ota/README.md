@@ -4,7 +4,7 @@
 设备 OTA 指的是设备通过网络进行固件的下载并更新的过程。固件升级业务包可以帮助你快速集成设备固件升级的能力。
 
 
-## 1.2 接入组件
+## 接入组件
 在工程的 `Podfile` 文件中添加 OTA 业务包组件，并执行 `pod update` 命令
 
 ```ruby
@@ -25,7 +25,7 @@ NSBluetoothAlwaysUsageDescription
 NSBluetoothPeripheralUsageDescription
 ```
 
-## 1.3 服务协议
+## 服务协议
 OTA 业务包实现 `TYOTAGeneralProtocol` 协议以提供服务，在 TYModuleServices 组件中查看 TYOTAGeneralProtocol.h 协议文件内容为：
 
 ```objc
@@ -83,12 +83,12 @@ typedef NS_ENUM(NSUInteger, TYOTAControllerTheme) {
 @end
 ```
 
-## 1.4 使用指南
+## 使用指南
 
-### 1.4.1 注意事项
+### 注意事项
 任何接口调用之前，务必确保用户已登录
 
-### 1.4.2 检测升级，进入 OTA 页面
+### 检测升级，进入 OTA 页面
 
 Objective-C 示例
 
@@ -121,7 +121,7 @@ func test(_ deviceModel: TuyaSmartDeviceModel) {
 }
 ```
 
-### 1.4.2 自定义强制升级返回逻辑
+### 自定义强制升级返回逻辑
 因为“强制升级” 被取消后，默认 `[self.navigationController popToRootViewControllerAnimated:YES]`，
 如果需要自定义行为，需要注册并实现 `TYOTAGeneralExternalProtocol`。
 
@@ -172,3 +172,4 @@ class OTASwiftDemo: NSObject, TYOTAGeneralExternalProtocol {
 ```
 
 在适合地方注册  `OTASwiftDemo.registerService()`
+

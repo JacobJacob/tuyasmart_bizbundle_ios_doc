@@ -18,7 +18,7 @@ source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.22.0'
 end
 ```
 **Note**
@@ -126,7 +126,7 @@ Objective-C
 ```objc
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
-
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
 - (void)registerProtocol {
     // Register the protocol to be implemented

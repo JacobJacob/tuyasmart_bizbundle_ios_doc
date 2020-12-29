@@ -21,7 +21,7 @@ source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
   # 添加场景业务包
-  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.22.0'
 end
 ```
 **注意**
@@ -128,7 +128,7 @@ Objective-C 示例
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
 #import <TYModuleServices/TYSmartHouseIndexProtocol.h>
-
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 - (void)registerProtocol {
     // 注册要实现的协议
     [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];

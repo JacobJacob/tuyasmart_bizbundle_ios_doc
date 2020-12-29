@@ -15,4 +15,6 @@
 - TuyaSmartPanelBizBundle (~> 3.22.0)
 - TuyaSmartSceneBizBundle (~> 3.22.0)
 - TuyaSmartOTABizBundle (~> 3.22.0)
+- TuyaSmartFamilyBizBundle (~> 3.22.0)
+- TuyaSmartDeviceDetailBizBundle (~> 3.22.0)
 
