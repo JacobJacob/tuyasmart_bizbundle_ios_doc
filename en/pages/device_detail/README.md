@@ -1,7 +1,6 @@
-#Device Detail BizBundle
+# Device Detail BizBundle
 
-------------
-##Features
+## Features
 
 - Device information editing (device avatar, room, name)
 - Device information query (ID, signal, etc.)
@@ -14,9 +13,9 @@
 
 ------------
 
-##Biz Bundle integration
+## Biz Bundle integration
 
-### 1.pod integration
+### pod integration
 Add the business package component to the project's 'Podfile' file and execute the 'pod update' command
 
 ```ruby
@@ -28,7 +27,7 @@ target 'your_target_name' do
   pod 'TuyaSmartDeviceDetailBizBundle', '~> 3.22.0'
 end
 ```
-### 2.Permission statement
+### Permission statement
 
 **Device business package device avatar upload, use of photo albums and cameras, which will involve some Apple's privacy permission statement.**
 
@@ -42,10 +41,9 @@ end
 <string>App needs your consent to access the camera</string>
 ```
 
-
 ------------
 
-### 3. Configuration file
+### Configuration file
 1. Create a new **configList.json** in the main project (the file already exists, no need to create it)
 
 2. Add in configList.json
@@ -115,10 +113,10 @@ empty | empty view, no actual function
 footer | remove device
 
 
-### 4. Service Agreement
+### Service Agreement
 
 #### Dependent service (need to be implemented)
-#####1.TYSmartHomeDataProtocol
+##### 1.TYSmartHomeDataProtocol
 
 ```
 /**
@@ -168,10 +166,10 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
     
 }
 ```
-### 4. Service Protocol
+### Service Protocol
 
 #### Dependent service (need to be implemented)
-#####1.TYSmartHomeDataProtocol
+##### TYSmartHomeDataProtocol
 
 ```
 /**
@@ -222,25 +220,25 @@ class TYMessageCenterTest: NSObject,TYSmartHomeDataProtocol{
 }
 ```
 
-####Optional function implementation
+#### Optional function implementation
 
 #### 1. OTA function
- #####**Access required**: [Access OTA Service Package](../ota/README.md "Access OTA Service Package")
+ **Access required**: [Access OTA Service Package](../ota/README.md "Access OTA Service Package")
 
 #### 2. FAQ and feedback function
- #####**Access required**: [Access Help Center Business Package](../faq/README.md "Access Help Center Service Package")
+ **Access required**: [Access Help Center Business Package](../faq/README.md "Access Help Center Service Package")
 
 
 
-
-###5. Provide service (method call)
+### Provide service (method call)
 
  Method | Parameters |
  -------- | :-----------:
  Jump to network detection page | device id
 Jump to the device details page and push |TuyaSmartDeviceModel/TuyaSmartGroupModel
 
-####oc sample code
+#### oc sample code
+
 ```
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYDeviceDetailProtocol.h>
@@ -263,7 +261,8 @@ Jump to the device details page and push |TuyaSmartDeviceModel/TuyaSmartGroupMod
 
 ```
 
-####swift sample code
+#### swift sample code
+
 ```
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYDeviceDetailProtocol.self) as? TYDeviceDetailProtocol
 //Jump to the device network detection page
