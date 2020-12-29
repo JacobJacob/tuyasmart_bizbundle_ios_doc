@@ -8,7 +8,7 @@
 - Alternate network Settings
 - Offline reminder function
 - Remove device
-- Frequently asked questions and feedback (need access to help Center business package/user's own implementation)
+- Frequently asked questions and feedback (need access to help Center business package)
 
 - Check firmware upgrade (OTA business package is required)
 
