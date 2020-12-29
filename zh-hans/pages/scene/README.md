@@ -128,7 +128,7 @@ Objective-C 示例
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
 #import <TYModuleServices/TYSmartHouseIndexProtocol.h>
-#import <TuyaSmartDeviceKit/TuyaSmartHome.h>
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 - (void)registerProtocol {
     // 注册要实现的协议
     [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];

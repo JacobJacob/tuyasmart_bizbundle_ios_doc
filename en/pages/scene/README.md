@@ -126,7 +126,7 @@ Objective-C
 ```objc
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
-#import <TuyaSmartDeviceKit/TuyaSmartHome.h>
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
 - (void)registerProtocol {
     // Register the protocol to be implemented
