@@ -21,7 +21,7 @@ source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
   # 添加场景业务包
-  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.22.0'
 end
 ```
 **注意**
@@ -110,9 +110,17 @@ NSLocationWhenInUseUsageDescription
 
 ### 注意事项
 
-1、任何接口调用之前，务必确认用户已登录。
+1. 任何接口调用之前，务必确认用户已登录。
 
-2、调用场景业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`和`TYSmartHouseIndexProtocol `中的协议方法`homeAdminValidation`。
+2. 调用场景业务包逻辑前，要先实现 `TYSmartHomeDataProtocol` 中的协议方法`getCurrentHome`和`TYSmartHouseIndexProtocol `中的协议方法`homeAdminValidation`。
+
+3. swift需要在桥接文件内引用业务包头文件。
+
+   ```objc
+   #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+   #import <TYModuleServices/TYModuleServices.h>
+   #import <TuyaSmartSceneKit/TuyaSmartSceneModel.h>
+   ```
 
 Objective-C 示例
 
@@ -120,7 +128,7 @@ Objective-C 示例
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
 #import <TYModuleServices/TYSmartHouseIndexProtocol.h>
-
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 - (void)registerProtocol {
     // 注册要实现的协议
     [[TuyaSmartBizCore sharedInstance] registerService:@protocol(TYSmartHomeDataProtocol) withInstance:self];
@@ -175,7 +183,7 @@ Objective-C 示例
 
 - (void)gotoAddScene {
     id<TYSmartSceneProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYSmartSceneProtocol)];
-    [impl1 addAutoScene:^(TuyaSmartSceneModel *secneModel, BOOL addSuccess) {
+    [impl addAutoScene:^(TuyaSmartSceneModel *secneModel, BOOL addSuccess) {
             
     }];
 }
@@ -255,3 +263,26 @@ func getSceneList() {
 }
 
 ```
+
+### 通知中心
+
+**kNotificationSmartSceneListUpdate**
+
+通知发送时机：
+
+1. 添加场景成功
+2. 编辑场景成功
+3. 删除场景成功（业务包默认场景类型为TuyaSmartSceneRecommendTypeNone和TuyaSmartSceneCollectionTypeNone）
+
+**kNotificationSmartSceneSaved**
+
+通知发送时机：
+
+1. 添加场景成功
+2. 编辑场景成功
+
+**kNotificationSmartSceneRecomDeleted**
+
+通知发送时机：
+
+1. 删除场景成功（推荐场景或者收藏场景）

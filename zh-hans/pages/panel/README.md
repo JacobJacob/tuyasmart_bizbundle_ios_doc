@@ -22,9 +22,9 @@ target 'your_target_name' do
   # TuyaSmart SDK
   pod "TuyaSmartHomeKit"
   # 添加设备控制业务包
-  pod 'TuyaSmartPanelBizBundle', '3.20.0.1.4'
+  pod 'TuyaSmartPanelBizBundle'
   # 若需要扫地机功能，请依赖扫地机相关插件
-  # pod 'TuyaRNApi/Sweeper', '5.29.62-Bizbundle.3.20.0-1'
+  # pod 'TuyaRNApi/Sweeper'
 end
 ```
 
@@ -78,35 +78,32 @@ NS_ASSUME_NONNULL_BEGIN
 // 清除面板缓存
 - (void)cleanPanelCache;
 
-/**
- * 跳转面板，push 的方式
- *
- * @param device        设备模型
- * @param group         群组模型
- * @param initialProps  自定义初始化参数，会以 'extraInfo' 为 key 设置进 RN 应用的 initialProps 中
- * @param contextProps  自定义面板上下文，会以 'extraInfo' 为 key 设置进 Panel Context 中
- * @param completion 完成跳转后的结果回调
- */
-- (void)gotoPanelViewControllerWithDevice:(TuyaSmartDeviceModel *)device
-                                    group:(nullable TuyaSmartGroupModel *)group
-                             initialProps:(nullable NSDictionary *)initialProps
-                             contextProps:(nullable NSDictionary *)contextProps
-                               completion:(void(^ _Nullable)(NSError * _Nullable error))completion;
 
 /**
- * 跳转面板，present 的方式
+ * 获取设备面板控制器
  *
- * @param device 设备模型
- * @param group 群组模型
+ * @param deviceModel 设备模型
  * @param initialProps  自定义初始化参数，会以 'extraInfo' 为 key 设置进 RN 应用的 initialProps 中
  * @param contextProps  自定义面板上下文，会以 'extraInfo' 为 key 设置进 Panel Context 中
- * @param completion 完成跳转后的结果回调
+ * @param completionHandler 回调返回视图控制器
  */
-- (void)presentPanelViewControllerWithDevice:(TuyaSmartDeviceModel *)device
-                                       group:(nullable TuyaSmartGroupModel *)group
+- (void)getPanelViewControllerWithDeviceModel:(TuyaSmartDeviceModel *)deviceModel
+                                 initialProps:(nullable NSDictionary *)initialProps
+                                 contextProps:(nullable NSDictionary *)contextProps
+                            completionHandler:(void (^ _Nullable)(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error))completionHandler;
+
+/**
+ * 获取群组面板控制器
+ *
+ * @param groupModel 群组模型
+ * @param initialProps  自定义初始化参数，会以 'extraInfo' 为 key 设置进 RN 应用的 initialProps 中
+ * @param contextProps  自定义面板上下文，会以 'extraInfo' 为 key 设置进 Panel Context 中
+ * @param completionHandler 回调返回视图控制器
+ */
+- (void)getPanelViewControllerWithGroupModel:(TuyaSmartGroupModel *)groupModel
                                 initialProps:(nullable NSDictionary *)initialProps
                                 contextProps:(nullable NSDictionary *)contextProps
-                                  completion:(void (^ _Nullable)(NSError * _Nullable error))completion;
+                           completionHandler:(void (^ _Nullable)(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error))completionHandler;
 
 // RN版本号
 - (NSString *_Nonnull)rnVersionForApp;
@@ -286,45 +283,25 @@ Objective-C
 
 ```objc
 id<TYPanelProtocol> impl = [[TuyaSmartBizCore sharedInstance] serviceOfProtocol:@protocol(TYPanelProtocol)];
-// 方式一: 默认 Push 方式跳转
-[impl gotoPanelViewControllerWithDevice:deviceModel group:nil initialProps:nil contextProps:nil completion:^(NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"Load error: %@", error);
-    }
-}];
-// 方式二: 使用 Present 方式跳转
-[impl presentPanelViewControllerWithDevice:deviceModel group:nil initialProps:nil contextProps:nil completion:^(NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"Load error: %@", error);
-    }
-}];
-// 方式三: 获取面板视图控制器，自行跳转
-[impl getPanelViewControllerWithDeviceModel:device groupModel:group initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
-
-}];
+// 获取面板视图控制器，自行跳转
+if (deviceModel) {
+    [impl getPanelViewControllerWithDeviceModel:deviceModel initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+    }];
+} else if (groupModel) {
+    [impl getPanelViewControllerWithGroupModel:groupModel initialProps:nil contextProps:nil completionHandler:^(__kindof UIViewController * _Nullable panelViewController, NSError * _Nullable error) {
+    }];
+}
 ```
 
 Swift
 
 ```swift
 let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
-// 方式一: 默认 Push 方式跳转
-impl?.gotoPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
-    if let e = error {
-        print("\(e)")
-    }
+// 获取面板视图控制器，自行跳转
+impl?.getPanelViewController(with: deviceModel, initialProps: nil, contextProps: nil, completionHandler: { (vc, err) in
+
 })
-// 方式二: 使用 Present 方式跳转
-impl?.presentPanelViewController(withDevice: deviceModel!, group: nil, initialProps: nil, contextProps: nil, completion: { (error) in
-    if let e = error {
-        print("\(e)")
-    }
-})
-// 方式三: 获取面板视图控制器，自行跳转
-let impl = TuyaSmartBizCore.sharedInstance().service(of: TYPanelProtocol.self) as? TYPanelProtocol
-impl?.getPanelViewController(with: deviceModel!, groupModel: nil, initialProps: nil, contextProps: nil, completionHandler: { (panelViewController, error) in
-		if let e = error {
-        print("\(e)")
-    }
+impl?.getPanelViewController(with: groupModel, initialProps: nil, contextProps: nil, completionHandler: { (vc, err) in
+
 })
 ```

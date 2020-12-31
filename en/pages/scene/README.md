@@ -18,7 +18,7 @@ source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://cdn.cocoapods.org/'
 
 target 'your_target_name' do
-  pod 'TuyaSmartSceneBizBundle', '~> 3.20.0'
+  pod 'TuyaSmartSceneBizBundle', '~> 3.22.0'
 end
 ```
 **Note**
@@ -109,16 +109,24 @@ Provide the administrator identity information required by the scene biz bundle.
 
 ### Attention
 
-1、Make sure that the user is logged in before using any interface.
+1. Make sure that the user is logged in before using any interface.
 
-2、Before using bizbundle, you need to implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol` and the protocol method `homeAdminValidation` in `TYSmartHouseIndexProtocol` first.
+2. Before using bizbundle, you need to implement the protocol method `getCurrentHome` in `TYSmartHomeDataProtocol` and the protocol method `homeAdminValidation` in `TYSmartHouseIndexProtocol` first.
+
+3. To use swift, you need to add the bizbundle header file in the bridge file.
+
+   ```
+   #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
+   #import <TYModuleServices/TYModuleServices.h>
+   #import <TuyaSmartSceneKit/TuyaSmartSceneModel.h>
+   ```
 
 Objective-C 
 
 ```objc
 #import <TuyaSmartBizCore/TuyaSmartBizCore.h>
 #import <TYModuleServices/TYSmartHomeDataProtocol.h>
-
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
 - (void)registerProtocol {
     // Register the protocol to be implemented
@@ -254,3 +262,26 @@ func getSceneList() {
 }
 
 ```
+
+### NotificationCenter
+
+**kNotificationSmartSceneListUpdate**
+
+Timing of notification:
+
+1. Added scene successfully
+2. Edit scene successfully
+3. Delete scene successfully ( Bizbundle default scene types are TuyaSmartSceneRecommendTypeNone and TuyaSmartSceneCollectionTypeNone )
+
+**kNotificationSmartSceneSaved**
+
+Timing of notification:
+
+1. Added scene successfully
+2. Edit scene successfully
+
+**kNotificationSmartSceneRecomDeleted**
+
+Timing of notification:
+
+1. Delete scene successfully ( Recommend scene or Collection type )

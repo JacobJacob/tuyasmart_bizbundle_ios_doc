@@ -39,3 +39,26 @@ self.ty_topBarBackgroundColor = <#Color#>;
 **2. 依赖插件的时候，`pod update` 报错？**
 
 工程在使用 cocoapods 集成业务包时，由于 pod 的逻辑，Podfile 中没有指明每个 Pod 库的版本时，默认会拉取最新的正式版本号（x.y.z，其中 x、y、z 均为数字）。若需要依赖设备控制业务包的扩展功能时，即需要依赖相关插件，由于插件的版本号属于 pre-release，因此，需要在 Podfile 中指明设备控制业务包的所在基线的最新日期标明的版本号（[点击查看业务包版本号](../versions.md)）。
+
+**3.进入面板时，弹框提示【当前版本不支持该设备，请升级 App】？**
+
+在调用进入设备面板业务包的接口前，确认已提前获取过设备信息，即成功调用过 Home SDK 中的该方法：
+
+```objective-c
+/**
+ *  After init home, need to get home details
+ *  初始化 home 对象之后需要获取家庭的详情，homeModel,roomList,deviceList,groupList 才有数据
+ *
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)getHomeDetailWithSuccess:(void (^)(TuyaSmartHomeModel *homeModel))success
+                         failure:(TYFailureError)failure;
+```
+
+若后续仍然出现该提示，有以下四种可能：
+
+1. 当前 SDK 支持的MQTT 通信协议低于硬件的通信协议，即 `deviceModel.pv > TUYA_CURRENT_GW_PROTOCOL_VERSION`
+2. 当前 SDK 支持的局域网通信协议低于硬件的通信协议，即 `deviceModel.lpv > TUYA_CURRENT_LAN_PROTOCOL_VERSION`
+3. 面板 UI 包不支持当前的版本（`deviceModel.rnFind` 为 False）
+4. 面板未找到合适的视图控制器以展示 (`deviceModel.uiType`)
